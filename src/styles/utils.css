@@ -1,0 +1,9 @@
+/* border */
+.border-round {
+  border-radius: 0.8rem;
+}
+
+/* text */
+.font-default {
+  font-size: 1.6rem;
+}
