@@ -1,0 +1,39 @@
+.navbar {
+  height: 8vh;
+  border-bottom: 1px solid var(--border-color);
+  position: sticky;
+  top: 0;
+  left: 0;
+}
+
+.navbar-brand img {
+  height: 4rem;
+}
+
+.brand-text {
+  font-size: 2rem;
+  margin-left: 1.6rem;
+}
+
+.navbar-search {
+  width: 55rem;
+  padding: 1.5rem;
+  background-color: var(--search-text-background-color);
+  border: none;
+  border-radius: 5px;
+  transition: all 0.3s;
+  outline: none;
+}
+
+::placeholder {
+  color: var(--primary-color);
+}
+
+.navbar-search:focus {
+  color: var(--secondary-color);
+  background-color: var(--white-color);
+}
+
+.navbar-profile {
+  border-radius: 50%;
+}

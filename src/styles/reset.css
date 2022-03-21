@@ -5,5 +5,15 @@ html {
 * {
   margin: 0;
   padding: 0;
+}
+
+body {
+  color: var(--primary-color);
+  background-color: var(--background-color);
   font-family: "Roboto", arial, sans-serif;
+}
+
+img {
+  max-inline-size: 100%;
+  block-size: auto;
 }

@@ -7,3 +7,43 @@
 .font-default {
   font-size: 1.6rem;
 }
+
+.font-lg {
+  font-size: 3.2rem;
+}
+
+.font-xl {
+  font-size: 4.8rem;
+}
+
+/* display */
+.flex-row {
+  display: flex;
+}
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.space-between {
+  justify-content: space-between;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.items-center {
+  align-items: center;
+}
+
+/* padding */
+.p-8 {
+  padding: 0.8rem;
+}
+
+/* width */
+.w-100 {
+  width: 100%;
+}
