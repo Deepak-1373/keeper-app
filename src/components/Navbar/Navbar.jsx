@@ -11,7 +11,7 @@ export const Navbar = () => {
         <p className="brand-text">Keeper</p>
       </div>
       <input
-        className="navbar-search font-default"
+        className="navbar-search font-default border-round"
         type="text"
         placeholder="Search"
       />
