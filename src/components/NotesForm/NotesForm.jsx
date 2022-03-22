@@ -4,7 +4,10 @@ import "./NotesForm.css";
 export const NotesForm = () => {
   const [displayTextArea, setDisplayTextArea] = useState(false);
 
-  const handleOnBlur = () => {
+  const handleOnBlur = (e) => {
+    if (e.target.tagName === "INPUT") {
+      return;
+    }
     setDisplayTextArea(false);
   };
 
@@ -12,16 +15,22 @@ export const NotesForm = () => {
     setDisplayTextArea(true);
   };
 
+  const handleOnClick = (e) => {
+    e.preventDefault();
+  };
+
   return (
     <div className="form-container">
       <form className="form-area flex-column items-center justify-center">
-        <div className="input-container flex-column border-round">
+        <div
+          className="input-container flex-column border-round"
+          onFocus={handleOnFocus}
+          onBlur={handleOnBlur}
+        >
           <input
             className="form-input border-round color-white disable-border disable-outline"
             type="text"
             placeholder="Title"
-            onFocus={handleOnFocus}
-            onBlur={handleOnBlur}
           />
           <textarea
             className={`${
@@ -31,6 +40,7 @@ export const NotesForm = () => {
           ></textarea>
           <button
             className={`${displayTextArea ? "display-block" : ""} add-btn `}
+            onClick={handleOnClick}
           >
             Add to list
           </button>
