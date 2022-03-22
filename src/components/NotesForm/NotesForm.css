@@ -1,4 +1,33 @@
-.form {
-  grid-area: "main";
-  margin-top: 1.5rem;
+.form-container {
+  grid-area: main;
+  margin-top: 2.5rem;
+}
+
+.form-area {
+  width: 80%;
+  margin: auto;
+}
+
+.input-container {
+  width: 100%;
+  border: 1px solid var(--border-color);
+}
+
+.form-input {
+  font-weight: 600;
+  padding: 1.2rem 1.6rem;
+  background-color: inherit;
+  outline: none;
+  border: none;
+}
+
+.text-input-area {
+  background-color: inherit;
+  border: none;
+  outline: none;
+  height: 8rem;
+  margin-bottom: 1.5rem;
+  padding: 1.2rem 1.6rem;
+  font-size: 1.6rem;
+  resize: none;
 }
