@@ -29,6 +29,11 @@ export const NotesForm = () => {
             } text-input-area color-white disable-border disable-outline`}
             placeholder="Take a note"
           ></textarea>
+          <button
+            className={`${displayTextArea ? "display-block" : ""} add-btn `}
+          >
+            Add to list
+          </button>
         </div>
       </form>
     </div>
