@@ -1,5 +1,5 @@
 import "./App.css";
-import { Navbar, Sidebar, NotesForm } from "./components";
+import { Navbar, Sidebar, NotesForm, NotesList } from "./components";
 
 const App = () => {
   return (
@@ -9,7 +9,10 @@ const App = () => {
       <div className="container">
         <Sidebar />
         {/* main container */}
-        <NotesForm />
+        <div className="notes-container">
+          <NotesForm />
+          <NotesList />
+        </div>
       </div>
     </div>
   );
