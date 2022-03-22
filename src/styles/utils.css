@@ -3,6 +3,14 @@
   border-radius: 0.8rem;
 }
 
+.disable-border {
+  border: none;
+}
+
+.disable-outline {
+  outline: none;
+}
+
 /* text */
 .font-default {
   font-size: 1.6rem;
