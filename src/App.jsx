@@ -1,13 +1,15 @@
 import "./App.css";
-import { Navbar } from "./components/Navbar/Navbar";
+import { Navbar, Sidebar } from "./components";
 
 const App = () => {
   return (
     <div className="app">
-      {/* Navbar */}
       <Navbar />
       {/* Sidebar */}
-      {/* main container */}
+      <div className="container">
+        <Sidebar />
+        {/* main container */}
+      </div>
     </div>
   );
 };

@@ -5,3 +5,9 @@
 .app {
   height: 100vh;
 }
+
+.container {
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+  grid-template-areas: "sidebar main";
+}
