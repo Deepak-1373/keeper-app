@@ -20,10 +20,15 @@
 }
 
 .text-input-area {
+  display: none;
   background-color: inherit;
   height: 8rem;
   margin-bottom: 1.5rem;
   padding: 1.2rem 1.6rem;
   font-size: 1.6rem;
   resize: none;
+}
+
+.display-block {
+  display: block;
 }
