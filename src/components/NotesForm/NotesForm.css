@@ -20,7 +20,7 @@
 }
 
 .text-input-area {
-  display: none;
+  /* display: none; */
   background-color: inherit;
   height: 8rem;
   margin-bottom: 1.5rem;
@@ -30,7 +30,7 @@
 }
 
 .add-btn {
-  display: none;
+  /* display: none; */
   position: absolute;
   left: 1.2rem;
   bottom: 1.2rem;

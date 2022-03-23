@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React from "react";
+import { useNotes } from "../../context";
 import "./NotesForm.css";
 
 export const NotesForm = () => {
@@ -16,9 +17,7 @@ export const NotesForm = () => {
   //   setDisplayTextArea(true);
   // };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-  };
+  const { notes, handleChange, handleSubmit } = useNotes();
 
   return (
     <div className="form-container">
@@ -32,11 +31,15 @@ export const NotesForm = () => {
             className="form-input border-round color-white disable-border disable-outline"
             type="text"
             placeholder="Title"
+            value={notes.title}
+            onChange={(e) => handleChange(e, "title")}
           />
           <textarea
             required
             className="text-input-area color-white disable-border disable-outline"
             placeholder="Take a note"
+            value={notes.content}
+            onChange={(e) => handleChange(e, "content")}
           ></textarea>
           <button className="add-btn">Add to list</button>
         </div>
