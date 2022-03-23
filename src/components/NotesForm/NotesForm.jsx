@@ -22,27 +22,27 @@ export const NotesForm = () => {
   return (
     <div className="form-container">
       <form
-        className="form-area flex-column items-center justify-center"
+        className="form-area flex-column justify-center border-round"
         onSubmit={handleSubmit}
       >
-        <div className="input-container flex-column border-round">
-          <input
-            required
-            className="form-input font-lg border-round color-white disable-border disable-outline"
-            type="text"
-            placeholder="Title"
-            value={notes.title}
-            onChange={(e) => handleChange(e, "title")}
-          />
-          <textarea
-            required
-            className="text-input-area font-default color-white disable-border disable-outline"
-            placeholder="Take a note"
-            value={notes.content}
-            onChange={(e) => handleChange(e, "content")}
-          ></textarea>
-          <button className="add-btn">Add to list</button>
-        </div>
+        <input
+          required
+          className="form-input font-lg border-round color-white disable-border disable-outline"
+          type="text"
+          placeholder="Title"
+          value={notes.title}
+          onChange={(e) => handleChange(e, "title")}
+        />
+        <textarea
+          required
+          className="text-input-area font-default color-white disable-border disable-outline"
+          placeholder="Take a note"
+          value={notes.content}
+          onChange={(e) => handleChange(e, "content")}
+        ></textarea>
+        <button className="add-btn border-round font-default">
+          Add to list
+        </button>
       </form>
     </div>
   );
