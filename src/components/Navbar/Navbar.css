@@ -27,8 +27,11 @@
 }
 
 .navbar-search:focus {
-  color: var(--secondary-color);
   background-color: var(--white-color);
+}
+
+.navbar-search:focus::placeholder {
+  color: var(--gray-color);
 }
 
 .navbar-profile {
