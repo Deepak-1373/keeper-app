@@ -1,13 +1,9 @@
 @import "./styles/reset.css";
 @import "./styles/utils.css";
 @import "./styles/variables.css";
-
-.app {
-  height: 100vh;
-}
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap");
 
 .container {
-  height: calc(100vh - 10.6vh);
   display: grid;
   grid-template-columns: 1fr 4fr;
   grid-template-areas: "sidebar main";

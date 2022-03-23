@@ -5,7 +5,7 @@ import "./Navbar.css";
 
 export const Navbar = () => {
   return (
-    <div className="navbar flex-row space-between items-center p-8">
+    <nav className="navbar flex-row space-between items-center p-8">
       <div className="navbar-brand flex-row items-center justify-center">
         <img src={bulbImage} alt="Keeper App" />
         <p className="brand-text">Keeper</p>
@@ -27,6 +27,6 @@ export const Navbar = () => {
         placeholder="Search"
       ></input>
       <img className="navbar-profile" src={profileImage} alt="Profile logo" />
-    </div>
+    </nav>
   );
 };
