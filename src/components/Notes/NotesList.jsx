@@ -7,9 +7,9 @@ export const NotesList = () => {
 
   return (
     <div className="notes-list-container flex-row justify-center">
-      {notesList.length &&
+      {notesList &&
         notesList.map(({ id, title, content }) => (
-          <div key={id} className="note">
+          <div key={id} className="note border-round">
             <h3>{title}</h3>
             <p>{content}</p>
           </div>

@@ -28,7 +28,7 @@ export const NotesForm = () => {
         <div className="input-container flex-column border-round">
           <input
             required
-            className="form-input border-round color-white disable-border disable-outline"
+            className="form-input font-lg border-round color-white disable-border disable-outline"
             type="text"
             placeholder="Title"
             value={notes.title}
@@ -36,7 +36,7 @@ export const NotesForm = () => {
           />
           <textarea
             required
-            className="text-input-area color-white disable-border disable-outline"
+            className="text-input-area font-default color-white disable-border disable-outline"
             placeholder="Take a note"
             value={notes.content}
             onChange={(e) => handleChange(e, "content")}

@@ -26,10 +26,6 @@
   outline: none;
 }
 
-::placeholder {
-  color: var(--primary-color);
-}
-
 .navbar-search:focus {
   color: var(--secondary-color);
   background-color: var(--white-color);
