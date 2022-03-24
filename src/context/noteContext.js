@@ -32,12 +32,28 @@ const NotesContextProvider = ({ children }) => {
     });
   };
 
+  const handleEdit = () => {
+    setNotesList((prev) => {
+      return prev.map((curr) =>
+        curr.id === modalForm.id ? { ...curr, ...modalForm } : curr
+      );
+    });
+    setOpenModal(false);
+  };
+
+  const handleRemove = () => {
+    setNotesList((prevList) => prevList.filter(({ id }) => id != modalForm.id));
+    setOpenModal(false);
+  };
+
   return (
     <notesContext.Provider
       value={{
         notes,
         handleChange,
         handleSubmit,
+        handleEdit,
+        handleRemove,
         notesList,
         openModal,
         setOpenModal,

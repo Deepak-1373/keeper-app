@@ -4,7 +4,14 @@ import { useNotes } from "../../context";
 import "./Modal.css";
 
 export const Modal = () => {
-  const { openModal, setOpenModal, modalForm, setModalForm } = useNotes();
+  const {
+    openModal,
+    setOpenModal,
+    modalForm,
+    setModalForm,
+    handleEdit,
+    handleRemove,
+  } = useNotes();
   return (
     <div
       className={`${
@@ -40,10 +47,16 @@ export const Modal = () => {
           </button>
         </div>
         <div className="w-full flex justify-end items-center">
-          <button className="edit-btn px-4 py-3 rounded-lg bg-inherit text-white border-base cursor-pointer">
+          <button
+            className="edit-btn px-4 py-3 rounded-lg bg-inherit text-white border-base cursor-pointer"
+            onClick={() => handleEdit(modalForm.id)}
+          >
             Edit
           </button>
-          <button className="remove-btn px-4 py-3 rounded-lg bg-inherit text-white border-base cursor-pointer">
+          <button
+            className="remove-btn px-4 py-3 rounded-lg bg-inherit text-white border-base cursor-pointer"
+            onClick={handleRemove}
+          >
             Remove
           </button>
         </div>
