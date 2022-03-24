@@ -10,6 +10,7 @@ const NotesContextProvider = ({ children }) => {
   });
 
   const [notesList, setNotesList] = useState([]);
+  const [openModal, setOpenModal] = useState(false);
 
   const handleChange = (e, field) => {
     setNotes((prev) => ({ ...prev, [field]: e.target.value }));
@@ -27,7 +28,14 @@ const NotesContextProvider = ({ children }) => {
 
   return (
     <notesContext.Provider
-      value={{ notes, handleChange, handleSubmit, notesList }}
+      value={{
+        notes,
+        handleChange,
+        handleSubmit,
+        notesList,
+        openModal,
+        setOpenModal,
+      }}
     >
       {children}
     </notesContext.Provider>
