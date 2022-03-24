@@ -49,6 +49,10 @@
   justify-content: center;
 }
 
+.justify-end {
+  justify-content: flex-end;
+}
+
 .items-center {
   align-items: center;
 }
@@ -99,6 +103,16 @@
   outline: none;
 }
 
+/* background */
+.bg-inherit {
+  background-color: inherit;
+}
+
+/* text color */
+.text-white {
+  color: var(--primary-color);
+}
+
 /* padding */
 .p-0 {
   padding: 0.8rem;
@@ -112,11 +126,6 @@
 .py-3 {
   padding-top: 1.2rem;
   padding-bottom: 1.2rem;
-}
-
-/* color */
-.color-white {
-  color: var(--primary-color);
 }
 
 /* cursor */

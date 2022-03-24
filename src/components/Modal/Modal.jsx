@@ -13,9 +13,15 @@ export const Modal = () => {
       <div className="modal-container flex flex-col justify-center items-start px-4 py-3">
         <h3>Title</h3>
         <p>content</p>
-        <button>Edit</button>
-        <button>Remove</button>
         <button onClick={() => setOpenModal(false)}>X</button>
+        <div className="w-full flex justify-end items-center">
+          <button className="edit-btn px-4 py-3 rounded-lg bg-inherit text-white cursor-pointer">
+            Edit
+          </button>
+          <button className="remove-btn px-4 py-3 rounded-lg bg-inherit text-white cursor-pointer">
+            Remove
+          </button>
+        </div>
       </div>
     </div>
   );
