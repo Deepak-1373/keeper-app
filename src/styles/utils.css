@@ -118,3 +118,8 @@
 .color-white {
   color: var(--primary-color);
 }
+
+/* cursor */
+.cursor-pointer {
+  cursor: pointer;
+}

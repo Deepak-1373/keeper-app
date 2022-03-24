@@ -12,7 +12,7 @@ export const NotesList = () => {
         notesList.map(({ id, title, content }) => (
           <div
             key={id}
-            className="note rounded-lg w-full px-4 py-3"
+            className="note rounded-lg w-full px-4 py-3 cursor-pointer"
             onClick={() => setOpenModal(true)}
           >
             <h3>{title}</h3>

@@ -13,7 +13,7 @@ export const NotesForm = () => {
       >
         <input
           required
-          className="form-input text-2xl rounded-lg color-white border-none outline-none px-4 py-3"
+          className="form-input w-full text-2xl rounded-lg color-white border-none outline-none px-4 py-3"
           type="text"
           placeholder="Title"
           value={notes.title}
@@ -21,12 +21,12 @@ export const NotesForm = () => {
         />
         <textarea
           required
-          className="text-input-area text-base color-white border-none outline-none text-base px-4 py-3"
+          className="text-input-area w-full text-base color-white border-none outline-none text-base px-4 py-3"
           placeholder="Take a note"
           value={notes.content}
           onChange={(e) => handleChange(e, "content")}
         ></textarea>
-        <button className="add-btn rounded-lg text-base px-4 px-3">
+        <button className="add-btn rounded-lg text-base px-4 py-3 cursor-pointer">
           Add to list
         </button>
       </form>

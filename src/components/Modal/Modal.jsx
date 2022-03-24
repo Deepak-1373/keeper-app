@@ -8,7 +8,7 @@ export const Modal = () => {
     <div
       className={`${
         openModal && "show-modal-bg"
-      } modal-background flex justify-center align-center w-screen h-screen fixed inset-0`}
+      } modal-background flex justify-center items-center w-screen h-screen fixed inset-0`}
     >
       <div className="modal-container flex flex-col justify-center items-start px-4 py-3">
         <h3>Title</h3>

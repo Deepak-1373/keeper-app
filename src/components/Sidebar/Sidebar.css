@@ -8,7 +8,6 @@
 }
 
 .sidebar-item:hover {
-  cursor: pointer;
   background-color: var(--background-hover-color);
   border-radius: 0 2.5rem 2.5rem 0;
 }
