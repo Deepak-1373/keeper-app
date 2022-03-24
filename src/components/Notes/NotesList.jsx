@@ -7,12 +7,12 @@ export const NotesList = () => {
   const { notesList, setOpenModal } = useNotes();
 
   return (
-    <div className="notes-list-container flex-row justify-center">
+    <div className="notes-list-container flex justify-center items-start flex-wrap relative">
       {notesList &&
         notesList.map(({ id, title, content }) => (
           <div
             key={id}
-            className="note rounded-lg"
+            className="note rounded-lg w-full px-4 py-3"
             onClick={() => setOpenModal(true)}
           >
             <h3>{title}</h3>
