@@ -22,12 +22,12 @@ export const NotesForm = () => {
   return (
     <div className="form-container">
       <form
-        className="form-area flex-column justify-center border-round"
+        className="form-area flex-column justify-center rounded-lg"
         onSubmit={handleSubmit}
       >
         <input
           required
-          className="form-input font-lg border-round color-white disable-border disable-outline"
+          className="form-input font-lg rounded-lg color-white disable-border disable-outline"
           type="text"
           placeholder="Title"
           value={notes.title}
@@ -40,9 +40,7 @@ export const NotesForm = () => {
           value={notes.content}
           onChange={(e) => handleChange(e, "content")}
         ></textarea>
-        <button className="add-btn border-round font-default">
-          Add to list
-        </button>
+        <button className="add-btn rounded-lg font-default">Add to list</button>
       </form>
     </div>
   );

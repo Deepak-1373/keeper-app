@@ -12,8 +12,8 @@ export const NotesList = () => {
         notesList.map(({ id, title, content }) => (
           <div
             key={id}
-            className="note border-round"
-            onClick={(prev) => setOpenModal(!prev)}
+            className="note rounded-lg"
+            onClick={() => setOpenModal(true)}
           >
             <h3>{title}</h3>
             <p>{content}</p>

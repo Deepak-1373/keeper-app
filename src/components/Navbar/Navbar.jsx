@@ -22,7 +22,7 @@ export const Navbar = () => {
         <path d="M0,0h24v24H0V0z" fill="none"></path>
       </svg> */}
       <input
-        className="navbar-search font-default border-round"
+        className="navbar-search font-default rounded-lg"
         type="text"
         placeholder="Search"
       ></input>
