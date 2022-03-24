@@ -42,7 +42,9 @@ const NotesContextProvider = ({ children }) => {
   };
 
   const handleRemove = () => {
-    setNotesList((prevList) => prevList.filter(({ id }) => id != modalForm.id));
+    setNotesList((prevList) =>
+      prevList.filter(({ id }) => id !== modalForm.id)
+    );
     setOpenModal(false);
   };
 
