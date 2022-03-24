@@ -1,7 +1,7 @@
 .modal-background {
   z-index: 2;
-  /* opacity: 0; */
-  /* visibility: hidden; */
+  opacity: 0;
+  visibility: hidden;
   transition: all 0.3s;
   background-color: var(--modal-background-color);
 }
@@ -19,15 +19,10 @@
 
 .edit-btn {
   margin-right: 1.2rem;
-  border: 1px solid var(--border-color);
 }
 
 .edit-btn:hover {
   background-color: var(--background-hover-color);
-}
-
-.remove-btn {
-  border: 1px solid var(--border-color);
 }
 
 .remove-btn:hover {
