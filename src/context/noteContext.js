@@ -9,6 +9,12 @@ const NotesContextProvider = ({ children }) => {
     content: "",
   });
 
+  const [modalForm, setModalForm] = useState({
+    id: "",
+    title: "",
+    content: "",
+  });
+
   const [notesList, setNotesList] = useState([]);
   const [openModal, setOpenModal] = useState(false);
 
@@ -35,6 +41,8 @@ const NotesContextProvider = ({ children }) => {
         notesList,
         openModal,
         setOpenModal,
+        modalForm,
+        setModalForm,
       }}
     >
       {children}

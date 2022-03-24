@@ -4,7 +4,16 @@ import { Modal } from "../Modal/Modal";
 import "./NotesList.css";
 
 export const NotesList = () => {
-  const { notesList, setOpenModal } = useNotes();
+  const { notesList, setOpenModal, setModalForm } = useNotes();
+
+  const clickHandler = (key, title, content) => {
+    setModalForm({
+      id: key,
+      title: title,
+      content: content,
+    });
+    setOpenModal(true);
+  };
 
   return (
     <div className="notes-list-container flex justify-center items-start flex-wrap relative">
@@ -13,7 +22,7 @@ export const NotesList = () => {
           <div
             key={id}
             className="note rounded-lg w-full px-4 py-3 border-base cursor-pointer"
-            onClick={() => setOpenModal(true)}
+            onClick={() => clickHandler(id, title, content)}
           >
             <h3>{title}</h3>
             <p>{content}</p>
