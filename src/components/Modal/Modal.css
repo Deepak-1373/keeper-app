@@ -17,6 +17,10 @@
   background-color: var(--navbar-background-color);
 }
 
+.close-modal {
+  margin: 1.2rem 1.6rem;
+}
+
 .edit-btn {
   margin-right: 1.2rem;
 }
