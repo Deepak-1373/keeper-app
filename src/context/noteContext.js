@@ -17,6 +17,7 @@ const NotesContextProvider = ({ children }) => {
 
   const [notesList, setNotesList] = useState([]);
   const [openModal, setOpenModal] = useState(false);
+  const [searchQuery, setSearchQuery] = useState("");
 
   const handleChange = (e, field) => {
     setNotes((prev) => ({ ...prev, [field]: e.target.value }));
@@ -52,15 +53,17 @@ const NotesContextProvider = ({ children }) => {
     <notesContext.Provider
       value={{
         notes,
+        notesList,
+        openModal,
+        modalForm,
+        searchQuery,
+        setOpenModal,
+        setModalForm,
+        setSearchQuery,
         handleChange,
         handleSubmit,
         handleEdit,
         handleRemove,
-        notesList,
-        openModal,
-        setOpenModal,
-        modalForm,
-        setModalForm,
       }}
     >
       {children}

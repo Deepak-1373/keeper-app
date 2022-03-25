@@ -71,7 +71,7 @@
 }
 
 .sticky {
-  position: static;
+  position: sticky;
 }
 
 .absolute {
