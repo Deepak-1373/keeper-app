@@ -18,7 +18,7 @@ export const Modal = () => {
         openModal && "show-modal-bg"
       } modal-background flex justify-center items-center w-screen h-screen fixed inset-0`}
     >
-      <div className="modal-container relative flex flex-col justify-center items-start px-4 py-3">
+      <div className="modal-container relative flex flex-col justify-center items-start px-4 py-3 rounded-lg border-base">
         <input
           required
           className="form-input w-full text-2xl bg-inherit rounded-lg text-white border-none outline-none px-4 py-3"
