@@ -1,9 +1,35 @@
-import React from "react";
+import React, { useState } from "react";
 import { useNotes } from "../../context";
+import { HANDLE_SUBMIT } from "../../reducer";
 import "./NotesForm.css";
 
 export const NotesForm = () => {
-  const { notes, handleChange, handleSubmit } = useNotes();
+  const { notesDispatch } = useNotes();
+
+  const [notes, setNotes] = useState({
+    title: "",
+    content: "",
+  });
+
+  const handleChange = (e, field) => {
+    setNotes((prev) => ({ ...prev, [field]: e.target.value }));
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    notesDispatch({
+      type: HANDLE_SUBMIT,
+      payload: {
+        title: notes.title,
+        content: notes.content,
+      },
+    });
+
+    setNotes({
+      title: "",
+      content: "",
+    });
+  };
 
   return (
     <div className="form-container">

@@ -1,17 +1,36 @@
 import React from "react";
-import Close from "@material-ui/icons/CloseRounded";
-import { useNotes } from "../../context";
 import "./Modal.css";
+import { HANDLE_EDIT, HANDLE_REMOVE } from "../../reducer";
+import { useNotes } from "../../context";
 
-export const Modal = () => {
-  const {
-    openModal,
-    setOpenModal,
-    modalForm,
-    setModalForm,
-    handleEdit,
-    handleRemove,
-  } = useNotes();
+export const Modal = ({ modalForm, openModal, setModalForm, setOpenModal }) => {
+  const { notesDispatch } = useNotes();
+
+  const handleEdit = (id) => {
+    notesDispatch({
+      type: HANDLE_EDIT,
+      payload: {
+        currId: id,
+        id: modalForm.id,
+        title: modalForm.title,
+        content: modalForm.content,
+      },
+    });
+    setOpenModal(false);
+  };
+
+  const handleRemove = (id) => {
+    notesDispatch({
+      type: HANDLE_REMOVE,
+      payload: id,
+    });
+    setOpenModal(false);
+  };
+
+  const handleChange = (e, field) => {
+    setModalForm((prev) => ({ ...prev, [field]: e.target.value }));
+  };
+
   return (
     <div
       className={`${
@@ -25,25 +44,21 @@ export const Modal = () => {
           type="text"
           placeholder="Title"
           value={modalForm.title}
-          onChange={(e) =>
-            setModalForm((prev) => ({ ...prev, title: e.target.value }))
-          }
+          onChange={(e) => handleChange(e, "title")}
         />
         <textarea
           required
           className="text-input-area w-full text-base bg-inherit text-white border-none outline-none text-base px-4 py-3"
           placeholder="Take a note"
           value={modalForm.content}
-          onChange={(e) =>
-            setModalForm((prev) => ({ ...prev, content: e.target.value }))
-          }
+          onChange={(e) => handleChange(e, "content")}
         ></textarea>
         <div className="close-modal absolute top-0 right-0">
           <button
             className="bg-inherit text-white border-base cursor-pointer"
             onClick={() => setOpenModal(false)}
           >
-            <Close></Close>
+            <span className="material-icons-outlined">close</span>
           </button>
         </div>
         <div className="w-full flex justify-end items-center">
@@ -55,7 +70,7 @@ export const Modal = () => {
           </button>
           <button
             className="remove-btn px-4 py-3 rounded-lg bg-inherit text-white border-base cursor-pointer"
-            onClick={handleRemove}
+            onClick={() => handleRemove(modalForm.id)}
           >
             Remove
           </button>

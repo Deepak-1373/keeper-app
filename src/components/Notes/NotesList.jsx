@@ -1,17 +1,24 @@
-import React from "react";
+import React, { useState } from "react";
 import { useNotes } from "../../context";
 import { Modal } from "../Modal/Modal";
 import "./NotesList.css";
 
 export const NotesList = () => {
-  const { notesList, setOpenModal, setModalForm, searchQuery } = useNotes();
+  const { notesList, searchQuery } = useNotes();
+  const [openModal, setOpenModal] = useState(false);
+  const [modalForm, setModalForm] = useState({
+    id: "",
+    title: "",
+    content: "",
+  });
 
-  const clickHandler = (key, title, content) => {
+  const clickHandler = (id, title, content) => {
     setModalForm({
-      id: key,
+      id: id,
       title: title,
       content: content,
     });
+
     setOpenModal(true);
   };
 
@@ -34,7 +41,12 @@ export const NotesList = () => {
               <p>{content}</p>
             </div>
           ))}
-      <Modal />
+      <Modal
+        modalForm={modalForm}
+        openModal={openModal}
+        setModalForm={setModalForm}
+        setOpenModal={setOpenModal}
+      />
     </div>
   );
 };
