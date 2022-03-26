@@ -55,7 +55,7 @@ export const Modal = ({ modalForm, openModal, setModalForm, setOpenModal }) => {
         ></textarea>
         <div className="close-modal absolute top-0 right-0">
           <button
-            className="bg-inherit text-white border-base cursor-pointer"
+            className="close-modal-button bg-inherit text-white border-none cursor-pointer"
             onClick={() => setOpenModal(false)}
           >
             <span className="material-icons-outlined">close</span>

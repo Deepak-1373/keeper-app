@@ -21,6 +21,16 @@
   margin: 1.2rem 1.6rem;
 }
 
+.close-modal-button {
+  padding: 1rem;
+  transition: all 0.3s;
+}
+
+.close-modal-button:hover {
+  background-color: var(--background-hover-color);
+  border-radius: 50%;
+}
+
 .edit-btn {
   margin-right: 1.2rem;
 }
