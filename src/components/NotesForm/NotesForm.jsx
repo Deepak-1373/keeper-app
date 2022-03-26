@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useNotes } from "../../context";
 import { HANDLE_SUBMIT } from "../../reducer";
+import { ColorList } from "../ColorList/ColorList";
 import "./NotesForm.css";
 
 export const NotesForm = () => {
@@ -35,7 +36,7 @@ export const NotesForm = () => {
     <div className="form-container">
       <form
         className="form-area flex flex-col justify-center items-start rounded-lg border-base"
-        onSubmit={handleSubmit}
+        onSubmit={(e) => handleSubmit(e)}
       >
         <input
           required
@@ -52,9 +53,12 @@ export const NotesForm = () => {
           value={notes.content}
           onChange={(e) => handleChange(e, "content")}
         ></textarea>
-        <button className="add-btn rounded-lg text-base bg-inherit px-4 py-3 border-base cursor-pointer">
-          Add to list
-        </button>
+        <div className="w-full flex justify-between items-center">
+          <button className="add-btn rounded-lg text-base bg-inherit px-4 py-3 border-base cursor-pointer">
+            Add to list
+          </button>
+          <ColorList />
+        </div>
       </form>
     </div>
   );
