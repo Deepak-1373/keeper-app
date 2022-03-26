@@ -10,6 +10,7 @@ export const NotesForm = () => {
   const [notes, setNotes] = useState({
     title: "",
     content: "",
+    backgroundColor: "",
   });
 
   const handleChange = (e, field) => {
@@ -23,6 +24,7 @@ export const NotesForm = () => {
       payload: {
         title: notes.title,
         content: notes.content,
+        backgroundColor: notes.backgroundColor,
       },
     });
 
@@ -32,9 +34,14 @@ export const NotesForm = () => {
     });
   };
 
+  const handleColorListChange = (obj, property) => {
+    setNotes((prev) => ({ ...prev, [obj]: property }));
+  };
+
   return (
     <div className="form-container">
       <form
+        style={{ backgroundColor: notes.backgroundColor }}
         className="form-area flex flex-col justify-center items-start rounded-lg border-base"
         onSubmit={(e) => handleSubmit(e)}
       >
@@ -57,7 +64,7 @@ export const NotesForm = () => {
           <button className="add-btn rounded-lg text-base bg-inherit px-4 py-3 border-base cursor-pointer">
             Add to list
           </button>
-          <ColorList />
+          <ColorList handleColorListChange={handleColorListChange} />
         </div>
       </form>
     </div>

@@ -2,10 +2,7 @@ import React from "react";
 import { colors } from "./data";
 import "./ColorList.css";
 
-export const ColorList = () => {
-  const handleOnChange = (string, property) => {
-    console.log(string, property);
-  };
+export const ColorList = ({ handleColorListChange }) => {
   return (
     <span className="color-list flex items-center justify-center">
       {colors.map((color) => (
@@ -14,7 +11,7 @@ export const ColorList = () => {
           key={color}
           className="color-picker"
           style={{ background: color }}
-          onClick={() => handleOnChange("backgroundColor", color)}
+          onClick={() => handleColorListChange("backgroundColor", color)}
         ></button>
       ))}
     </span>

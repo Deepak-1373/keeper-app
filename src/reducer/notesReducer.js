@@ -23,7 +23,12 @@ export const notesReducer = (state, { type, payload }) => {
       return {
         ...state,
         notesList: [
-          { id: uuid(), title: payload.title, content: payload.content },
+          {
+            id: uuid(),
+            title: payload.title,
+            content: payload.content,
+            backgroundColor: payload.backgroundColor,
+          },
           ...state.notesList,
         ],
       };

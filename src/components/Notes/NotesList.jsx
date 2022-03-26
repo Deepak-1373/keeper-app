@@ -31,8 +31,9 @@ export const NotesList = () => {
               ? note
               : note.title.toLowerCase().includes(searchQuery.toLowerCase());
           })
-          .map(({ id, title, content }) => (
+          .map(({ id, title, content, backgroundColor }) => (
             <div
+              style={{ backgroundColor: backgroundColor }}
               key={id}
               className="note rounded-lg w-full px-4 py-3 border-base cursor-pointer"
               onClick={() => clickHandler(id, title, content)}
