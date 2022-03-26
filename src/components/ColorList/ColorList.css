@@ -12,5 +12,5 @@
 
 .color-picker:hover {
   opacity: 0.7;
-  border: 1px solid #3f3f46;
+  border: 1px solid var(--color-list-border);
 }

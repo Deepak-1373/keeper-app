@@ -9,7 +9,7 @@ export const ColorList = ({ handleColorListChange }) => {
         <button
           type="button"
           key={color}
-          className="color-picker"
+          className="color-picker border-none"
           style={{ background: color }}
           onClick={() => handleColorListChange("backgroundColor", color)}
         ></button>
