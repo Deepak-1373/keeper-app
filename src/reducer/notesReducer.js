@@ -43,6 +43,7 @@ export const notesReducer = (state, { type, payload }) => {
                 id: payload.id,
                 title: payload.title,
                 content: payload.content,
+                backgroundColor: payload.backgroundColor,
               }
             : note
         ),

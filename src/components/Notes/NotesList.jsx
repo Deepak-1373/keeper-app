@@ -12,11 +12,12 @@ export const NotesList = () => {
     content: "",
   });
 
-  const clickHandler = (id, title, content) => {
+  const clickHandler = (id, title, content, backgroundColor) => {
     setModalForm({
       id: id,
       title: title,
       content: content,
+      backgroundColor: backgroundColor,
     });
 
     setOpenModal(true);
@@ -36,7 +37,7 @@ export const NotesList = () => {
               style={{ backgroundColor: backgroundColor }}
               key={id}
               className="note rounded-lg w-full px-4 py-3 border-base cursor-pointer"
-              onClick={() => clickHandler(id, title, content)}
+              onClick={() => clickHandler(id, title, content, backgroundColor)}
             >
               <h3>{title}</h3>
               <p>{content}</p>
