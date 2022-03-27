@@ -1,12 +1,12 @@
 import React from "react";
-import { useNotes } from "../../context";
+import { useNotes, useTheme } from "../../context";
 import bulbImage from "../../assests/bulb.png";
-import profileImage from "../../assests/profile.jpg";
 import { SET_SEARCH_QUERY } from "../../reducer";
 import "./Navbar.css";
 
 export const Navbar = () => {
   const { searchQuery, notesDispatch } = useNotes();
+  const { theme, changeTheme } = useTheme();
   return (
     <nav className="navbar flex justify-between items-center p-0 sticky top-0 left-0">
       <div className="navbar-brand flex items-center justify-center">
@@ -26,7 +26,11 @@ export const Navbar = () => {
           })
         }
       ></input>
-      <img className="navbar-profile" src={profileImage} alt="Profile logo" />
+      <button className="theme-btn" onClick={changeTheme}>
+        <i
+          className={`fa-solid ${theme === "light" ? "fa-moon" : "fa-sun"}`}
+        ></i>
+      </button>
     </nav>
   );
 };

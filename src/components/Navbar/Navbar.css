@@ -28,6 +28,10 @@
   color: var(--gray-color);
 }
 
-.navbar-profile {
-  border-radius: 50%;
+.theme-btn {
+  padding: 0.8rem;
+}
+
+.theme-btn i {
+  font-size: 2rem;
 }

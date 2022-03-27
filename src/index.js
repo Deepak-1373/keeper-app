@@ -1,13 +1,15 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import App from "./App";
-import { NotesContextProvider } from "./context";
+import { NotesContextProvider, ThemeProvider } from "./context";
 
 ReactDOM.render(
   <React.StrictMode>
-    <NotesContextProvider>
-      <App />
-    </NotesContextProvider>
+    <ThemeProvider>
+      <NotesContextProvider>
+        <App />
+      </NotesContextProvider>
+    </ThemeProvider>
   </React.StrictMode>,
   document.getElementById("root")
 );
