@@ -13,8 +13,7 @@
 
 .modal-container {
   width: 60rem;
-  color: var(--white-color);
-  background-color: var(--navbar-background-color);
+  background-color: var(--background-color);
 }
 
 .close-modal {

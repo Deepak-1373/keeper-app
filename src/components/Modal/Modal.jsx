@@ -39,7 +39,7 @@ export const Modal = ({ modalForm, openModal, setModalForm, setOpenModal }) => {
       } modal-background flex justify-center items-center w-screen h-screen fixed inset-0`}
     >
       <div
-        className="modal-container relative flex flex-col justify-center items-start px-4 py-3 rounded-lg border-base"
+        className="modal-container relative flex flex-col justify-center items-start px-4 py-3 rounded-lg border-base text-white"
         style={{ backgroundColor: modalForm.backgroundColor }}
       >
         <input

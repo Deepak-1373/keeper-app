@@ -61,7 +61,7 @@ export const NotesForm = () => {
           onChange={(e) => handleChange(e, "content")}
         ></textarea>
         <div className="w-full flex justify-between items-center">
-          <button className="add-btn rounded-lg text-base bg-inherit px-4 py-3 border-base cursor-pointer">
+          <button className="add-btn rounded-lg text-white bg-inherit px-4 py-3 border-base cursor-pointer">
             Add to list
           </button>
           <ColorList handleColorListChange={handleColorListChange} />

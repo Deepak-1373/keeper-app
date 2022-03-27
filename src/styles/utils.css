@@ -126,7 +126,7 @@
 
 /* text color */
 .text-white {
-  color: var(--white-color);
+  color: var(--primary-color);
 }
 
 /* padding */

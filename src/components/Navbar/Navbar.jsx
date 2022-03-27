@@ -11,7 +11,7 @@ export const Navbar = () => {
     <nav className="navbar flex justify-between items-center p-0 sticky top-0 left-0">
       <div className="navbar-brand flex items-center justify-center">
         <img src={bulbImage} alt="Keeper App" />
-        <p className="brand-text text-2xl">Keeper</p>
+        <p className="brand-text text-white text-2xl">Keeper</p>
       </div>
 
       <input
@@ -26,7 +26,10 @@ export const Navbar = () => {
           })
         }
       ></input>
-      <button className="theme-btn" onClick={changeTheme}>
+      <button
+        className="theme-btn bg-inherit rounded-lg text-white border-base"
+        onClick={changeTheme}
+      >
         <i
           className={`fa-solid ${theme === "light" ? "fa-moon" : "fa-sun"}`}
         ></i>

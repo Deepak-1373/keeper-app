@@ -1,13 +1,23 @@
 :root {
-  --white-color: #fff;
-  --gray-color: #85888d;
+  --gray-color: #6b7280;
   --border-color: #5f6368;
-  --primary-color: #e8eaed;
+  --primary-color: rgba(255, 255, 255, 0.87);
   --secondary-color: #41331c;
-  --background-color: #202124;
+  --background-color: #121212;
   --color-list-border: #3f3f46;
-  --navbar-background-color: #2c2929;
+  --navbar-background-color: #1f1b24;
   --background-hover-color: rgba(232, 234, 237, 0.08);
   --search-text-background-color: rgba(241, 243, 244, 0.24);
   --modal-background-color: rgba(0, 0, 0, 0.4);
+  --search-focus-color: rgba(255, 255, 255, 0.87);
+}
+
+.light {
+  --background-color: #ffffff;
+  --primary-color: #000000;
+  --secondary-color: #eab308;
+  --navbar-background-color: #e2e8f0;
+  --search-text-background-color: #fafafa;
+  --background-hover-color: #e1dfe2;
+  --search-focus-color: rgba(255, 255, 255, 0.87);
 }
