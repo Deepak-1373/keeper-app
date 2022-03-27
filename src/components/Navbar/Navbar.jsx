@@ -27,7 +27,7 @@ export const Navbar = () => {
         }
       ></input>
       <button
-        className="theme-btn bg-inherit rounded-lg text-white border-base"
+        className="theme-btn bg-inherit rounded-lg text-white border-base cursor-pointer"
         onClick={changeTheme}
       >
         <i
