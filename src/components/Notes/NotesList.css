@@ -13,3 +13,18 @@
   overflow: auto;
   margin: 2.5rem;
 }
+
+.note-overlay {
+  opacity: 0;
+  background-color: var(--overlay-background-color);
+  transition: opacity 0.4s ease-in-out;
+}
+
+.note:hover h3,
+.note:hover p {
+  color: var(--background-color);
+}
+
+.note:hover .note-overlay {
+  opacity: 1;
+}

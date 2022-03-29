@@ -36,11 +36,16 @@ export const NotesList = () => {
             <div
               style={{ backgroundColor: backgroundColor }}
               key={id}
-              className="note rounded-lg w-full px-4 py-3 border-base cursor-pointer"
+              className="note rounded-lg relative w-full px-4 py-3 border-base cursor-pointer"
               onClick={() => clickHandler(id, title, content, backgroundColor)}
             >
               <h3>{title}</h3>
               <p>{content}</p>
+              <div className="note-overlay absolute inset-0">
+                <h2 className="overlay-text absolute top-50 left-50 translate-50">
+                  Click to edit
+                </h2>
+              </div>
             </div>
           ))}
       <Modal
