@@ -3,27 +3,27 @@ import uuid from "react-uuid";
 export const sidebarNames = [
   {
     id: uuid(),
-    name: "Notes",
+    sidebarName: "Notes",
     iconName: "lightbulb",
   },
   {
     id: uuid(),
-    name: "Reminders",
+    sidebarName: "Reminders",
     iconName: "notifications",
   },
   {
     id: uuid(),
-    name: "Edit labels",
+    sidebarName: "Edit labels",
     iconName: "mode_edit",
   },
   {
     id: uuid(),
-    name: "Archive",
+    sidebarName: "Archive",
     iconName: "archive",
   },
   {
     id: uuid(),
-    name: "Bin",
+    sidebarName: "Bin",
     iconName: "delete_forever",
   },
 ];

@@ -7,6 +7,10 @@
   font-weight: 500;
 }
 
+.sidebar-icon {
+  padding-right: 2rem;
+}
+
 .sidebar-item:hover {
   background-color: var(--background-hover-color);
   border-radius: 0 2.5rem 2.5rem 0;
