@@ -16,7 +16,7 @@
   border-radius: 0 2.5rem 2.5rem 0;
 }
 
-.active {
+.sidebar .active {
   background-color: var(--secondary-color);
   border-radius: 0 2.5rem 2.5rem 0;
 }
