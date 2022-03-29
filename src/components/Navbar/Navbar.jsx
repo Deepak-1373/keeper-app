@@ -10,6 +10,7 @@ export const Navbar = () => {
   return (
     <nav className="navbar flex justify-between items-center p-0 sticky top-0 left-0">
       <div className="navbar-brand flex items-center justify-center">
+        <span class="material-icons-outlined">menu</span>
         <img src={bulbImage} alt="Keeper App" />
         <p className="brand-text text-white text-2xl">Keeper</p>
       </div>
