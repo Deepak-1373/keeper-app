@@ -6,7 +6,7 @@ export const Sidebar = () => {
   const [active, setActive] = useState();
 
   const handleSidebarClick = (listIdx) => {
-    active === listIdx ? setActive(listIdx) : setActive(listIdx);
+    active === listIdx ? setActive() : setActive(listIdx);
   };
 
   return (

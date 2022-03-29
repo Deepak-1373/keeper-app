@@ -1,6 +1,7 @@
 .sidebar {
   grid-area: sidebar;
   margin-top: 0.8rem;
+  min-width: 27.3rem;
 }
 .sidebar-item {
   padding: 1.5rem 3rem;
