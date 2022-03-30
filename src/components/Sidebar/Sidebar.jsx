@@ -1,34 +1,38 @@
 import React, { useState } from "react";
 import "./Sidebar.css";
 import { sidebarNames } from "./data";
+import { useNotes } from "../../context";
 
 export const Sidebar = () => {
   const [active, setActive] = useState();
+  const { toggle } = useNotes();
 
   const handleSidebarClick = (listIdx) => {
     active === listIdx ? setActive() : setActive(listIdx);
   };
 
   return (
-    <div className="sidebar">
-      <ul className="text-white text-base cursor-pointer">
-        {sidebarNames.map(({ id, sidebarName, iconName }, idx) => (
-          <>
-            <li
-              onClick={() => handleSidebarClick(idx)}
-              key={id}
-              className={`${
-                active === idx && "active"
-              }  sidebar-item flex items-center`}
-            >
-              <span className="sidebar-icon material-icons-outlined">
-                {iconName}
-              </span>
+    <div
+      className={`${toggle ? "hide-list" : "show-list"} sidebar flex flex-col`}
+    >
+      {sidebarNames.map(({ id, sidebarName, iconName }, idx) => (
+        <>
+          <ul
+            key={id}
+            onClick={() => handleSidebarClick(idx)}
+            className={`${
+              active === idx && "active"
+            }  sidebar-show flex items-center text-base cursor-pointer`}
+          >
+            <span className="sidebar-icon material-icons-outlined">
+              {iconName}
+            </span>
+            <li className={`${toggle ? "hide-names" : "show-names"}`} key={id}>
               {sidebarName}
             </li>
-          </>
-        ))}
-      </ul>
+          </ul>
+        </>
+      ))}
     </div>
   );
 };

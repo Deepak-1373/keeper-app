@@ -1,16 +1,29 @@
 import React from "react";
-import { useNotes, useTheme } from "../../context";
 import bulbImage from "../../assests/bulb.png";
-import { SET_SEARCH_QUERY } from "../../reducer";
+import { useNotes, useTheme } from "../../context";
+import { SET_SEARCH_QUERY, SET_TOGGLE_SIDEBAR } from "../../reducer";
 import "./Navbar.css";
 
 export const Navbar = () => {
-  const { searchQuery, notesDispatch } = useNotes();
+  const { searchQuery, notesDispatch, toggle } = useNotes();
   const { theme, changeTheme } = useTheme();
+
+  const clickHanlder = () => {
+    notesDispatch({
+      type: SET_TOGGLE_SIDEBAR,
+      payload: !toggle,
+    });
+  };
+
   return (
     <nav className="navbar flex justify-between items-center p-0 sticky top-0 left-0">
       <div className="navbar-brand flex items-center justify-center">
-        <span class="material-icons-outlined">menu</span>
+        <span
+          onClick={() => clickHanlder()}
+          class="material-icons-outlined cursor-pointer"
+        >
+          menu
+        </span>
         <img src={bulbImage} alt="Keeper App" />
         <p className="brand-text text-white text-2xl">Keeper</p>
       </div>

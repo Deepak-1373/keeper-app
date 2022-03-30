@@ -4,7 +4,7 @@ import { initialState, notesReducer } from "../reducer";
 const notesContext = createContext(null);
 
 const NotesContextProvider = ({ children }) => {
-  const [{ notesList, searchQuery }, notesDispatch] = useReducer(
+  const [{ notesList, searchQuery, toggle }, notesDispatch] = useReducer(
     notesReducer,
     initialState
   );
@@ -14,6 +14,7 @@ const NotesContextProvider = ({ children }) => {
       value={{
         notesList,
         searchQuery,
+        toggle,
         notesDispatch,
       }}
     >

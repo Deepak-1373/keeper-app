@@ -1,7 +1,8 @@
 .sidebar {
   grid-area: sidebar;
   margin-top: 0.8rem;
-  min-width: 27.3rem;
+  min-width: 9rem;
+  transition: all 0.4s;
 }
 .sidebar-item {
   padding: 1.5rem 3rem;
@@ -12,7 +13,12 @@
   padding-right: 2rem;
 }
 
-.sidebar-item:hover {
+.sidebar-show {
+  padding: 1.5rem 3rem;
+  font-weight: 500;
+}
+
+.sidebar-show:hover {
   background-color: var(--background-hover-color);
   border-radius: 0 2.5rem 2.5rem 0;
 }
@@ -20,4 +26,20 @@
 .sidebar .active {
   background-color: var(--secondary-color);
   border-radius: 0 2.5rem 2.5rem 0;
+}
+
+.show-list {
+  display: block;
+}
+
+.show-names {
+  display: block;
+}
+
+.hide-names {
+  display: none;
+}
+
+.hide-list {
+  width: 9rem;
 }

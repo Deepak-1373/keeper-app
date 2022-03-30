@@ -3,16 +3,24 @@ import {
   HANDLE_REMOVE,
   HANDLE_EDIT,
   SET_SEARCH_QUERY,
+  SET_TOGGLE_SIDEBAR,
 } from "./index";
 import uuid from "react-uuid";
 
 export const initialState = {
   notesList: [],
   searchQuery: "",
+  toggle: false,
 };
 
 export const notesReducer = (state, { type, payload }) => {
   switch (type) {
+    case SET_TOGGLE_SIDEBAR:
+      return {
+        ...state,
+        toggle: payload,
+      };
+
     case SET_SEARCH_QUERY:
       return {
         ...state,
