@@ -27,7 +27,7 @@ export const Sidebar = () => {
             <span className="sidebar-icon material-icons-outlined">
               {iconName}
             </span>
-            <li className={`${toggle ? "hide-names" : "show-names"}`} key={id}>
+            <li className={`${toggle ? "hide-names" : "show-names"}`}>
               {sidebarName}
             </li>
           </ul>

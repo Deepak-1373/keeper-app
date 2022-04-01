@@ -5,12 +5,12 @@
   background-color: var(--navbar-background-color);
 }
 
-.navbar-brand img {
-  height: 4rem;
+.navbar-brand {
+  width: 20rem;
 }
 
-.brand-text {
-  margin-left: 1.6rem;
+.navbar-brand img {
+  height: 4rem;
 }
 
 .navbar-search {
