@@ -29,9 +29,22 @@
 }
 
 .theme-btn {
+  margin-left: 0.8rem;
   padding: 0.8rem;
 }
 
 .theme-btn i {
   font-size: 2rem;
+}
+
+@media screen and (max-width: 600px) {
+  .navbar-search {
+    width: 25rem;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .navbar-search {
+    width: 15rem;
+  }
 }
