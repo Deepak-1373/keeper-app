@@ -3,7 +3,7 @@ import { darkColors, lightColors } from "./data";
 import { useTheme } from "../../context";
 import "./ColorList.css";
 
-export const ColorList = ({ handleColorListChange, formDisplay }) => {
+export const ColorList = ({ handleColorListChange }) => {
   const { theme } = useTheme();
 
   const themeValue = theme === "dark" ? darkColors : lightColors;
@@ -17,7 +17,6 @@ export const ColorList = ({ handleColorListChange, formDisplay }) => {
           className="color-picker"
           style={{
             backgroundColor: color,
-            display: formDisplay ? "block" : "none",
           }}
           onClick={() => handleColorListChange("backgroundColor", color)}
         ></button>
