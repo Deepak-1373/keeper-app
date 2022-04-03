@@ -6,7 +6,7 @@ import "./NotesForm.css";
 
 export const NotesForm = () => {
   const { notesDispatch } = useNotes();
-
+  const [formDisplay, setFormDisplay] = useState(false);
   const [notes, setNotes] = useState({
     title: "",
     content: "",
@@ -15,6 +15,17 @@ export const NotesForm = () => {
 
   const handleChange = (e, field) => {
     setNotes((prev) => ({ ...prev, [field]: e.target.value }));
+  };
+
+  const handleOnFocus = () => {
+    setFormDisplay(true);
+  };
+
+  const handleOnBlur = (event) => {
+    if (event.target.tagName === "INPUT") {
+      return;
+    }
+    setFormDisplay(false);
   };
 
   const handleSubmit = (e) => {
@@ -44,6 +55,8 @@ export const NotesForm = () => {
         style={{ backgroundColor: notes.backgroundColor }}
         className="form-area flex flex-col justify-center items-start rounded-lg border-base"
         onSubmit={(e) => handleSubmit(e)}
+        onFocus={() => handleOnFocus()}
+        onBlur={(e) => handleOnBlur(e)}
       >
         <input
           required
@@ -55,16 +68,23 @@ export const NotesForm = () => {
         />
         <textarea
           required
+          style={{ display: formDisplay ? "block" : "none" }}
           className="text-input-area w-full text-base bg-inherit text-white border-none outline-none text-base px-4 py-3"
           placeholder="Take a note"
           value={notes.content}
           onChange={(e) => handleChange(e, "content")}
         ></textarea>
         <div className="w-full flex justify-between items-center">
-          <button className="add-btn rounded-lg text-white bg-inherit px-4 py-3 border-base cursor-pointer">
+          <button
+            style={{ display: formDisplay ? "block" : "none" }}
+            className="add-btn rounded-lg text-white bg-inherit px-4 py-3 border-base cursor-pointer"
+          >
             Add
           </button>
-          <ColorList handleColorListChange={handleColorListChange} />
+          <ColorList
+            formDisplay={formDisplay}
+            handleColorListChange={handleColorListChange}
+          />
         </div>
       </form>
     </div>
