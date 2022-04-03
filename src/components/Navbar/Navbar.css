@@ -5,6 +5,15 @@
   background-color: var(--navbar-background-color);
 }
 
+.hamburger-menu {
+  padding: 1rem;
+}
+
+.hamburger-menu:hover {
+  background-color: var(--background-hover-color);
+  border-radius: 50%;
+}
+
 .navbar-brand {
   width: 20rem;
 }

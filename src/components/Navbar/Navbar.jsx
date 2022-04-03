@@ -20,7 +20,7 @@ export const Navbar = () => {
       <div className="navbar-brand flex items-center justify-even">
         <span
           onClick={() => clickHandler()}
-          class="material-icons-outlined cursor-pointer"
+          class="hamburger-menu material-icons-outlined cursor-pointer"
         >
           menu
         </span>
