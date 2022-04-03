@@ -1,6 +1,5 @@
 .sidebar {
   grid-area: sidebar;
-  margin-top: 0.8rem;
   min-width: 9rem;
   transition: all 0.4s;
 }
