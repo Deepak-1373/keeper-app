@@ -1,10 +1,11 @@
 import React, { useState } from "react";
-import { useNotes } from "../../context";
+import { useNotes, useTheme } from "../../context";
 import { Modal } from "../Modal/Modal";
 import "./NotesList.css";
 
 export const NotesList = () => {
   const { notesList, searchQuery } = useNotes();
+  const { theme } = useTheme();
   const [openModal, setOpenModal] = useState(false);
   const [modalForm, setModalForm] = useState({
     id: "",
@@ -34,7 +35,7 @@ export const NotesList = () => {
           })
           .map(({ id, title, content, backgroundColor }) => (
             <div
-              style={{ backgroundColor: backgroundColor }}
+              style={{ backgroundColor: backgroundColor[theme] }}
               key={id}
               className="note rounded-lg relative w-full px-4 py-3 border-base cursor-pointer"
               onClick={() => clickHandler(id, title, content, backgroundColor)}

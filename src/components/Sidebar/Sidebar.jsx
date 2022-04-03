@@ -16,9 +16,8 @@ export const Sidebar = () => {
       className={`${toggle ? "hide-list" : "show-list"} sidebar flex flex-col`}
     >
       {sidebarNames.map(({ id, sidebarName, iconName }, idx) => (
-        <>
+        <div key={id}>
           <ul
-            key={id}
             onClick={() => handleSidebarClick(idx)}
             className={`${
               active === idx && "active"
@@ -31,7 +30,7 @@ export const Sidebar = () => {
               {sidebarName}
             </li>
           </ul>
-        </>
+        </div>
       ))}
     </div>
   );

@@ -1,22 +1,22 @@
 import React from "react";
-import { darkColors, lightColors } from "./data";
+import { colors } from "./data";
 import { useTheme } from "../../context";
 import "./ColorList.css";
 
 export const ColorList = ({ handleColorListChange }) => {
   const { theme } = useTheme();
 
-  const themeValue = theme === "dark" ? darkColors : lightColors;
+  // const themeValue = theme === "dark" ? darkColors : lightColors;
 
   return (
     <span className="color-list flex items-center justify-center">
-      {themeValue.map((color) => (
+      {colors.map((color) => (
         <button
           type="button"
-          key={color}
+          key={color.id}
           className="color-picker"
           style={{
-            backgroundColor: color,
+            backgroundColor: color[theme],
           }}
           onClick={() => handleColorListChange("backgroundColor", color)}
         ></button>

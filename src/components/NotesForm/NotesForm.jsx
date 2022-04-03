@@ -1,15 +1,16 @@
 import React, { useState } from "react";
-import { useNotes } from "../../context";
+import { useNotes, useTheme } from "../../context";
 import { HANDLE_SUBMIT } from "../../reducer";
 import { ColorList } from "../ColorList/ColorList";
 import "./NotesForm.css";
 
 export const NotesForm = () => {
   const { notesDispatch } = useNotes();
+  const { theme } = useTheme();
   const [notes, setNotes] = useState({
     title: "",
     content: "",
-    backgroundColor: "",
+    backgroundColor: null ?? { dark: "#121212", light: "#ffffff" },
   });
 
   const handleChange = (e, field) => {
@@ -30,6 +31,7 @@ export const NotesForm = () => {
     setNotes({
       title: "",
       content: "",
+      backgroundColor: null ?? { dark: "#121212", light: "#ffffff" },
     });
   };
 
@@ -40,7 +42,7 @@ export const NotesForm = () => {
   return (
     <div className="form-container">
       <form
-        style={{ backgroundColor: notes.backgroundColor }}
+        style={{ backgroundColor: notes.backgroundColor[theme] }}
         className="form-area flex flex-col justify-center items-start rounded-lg border-base"
         onSubmit={(e) => handleSubmit(e)}
       >
