@@ -8,7 +8,7 @@ export const Navbar = () => {
   const { searchQuery, notesDispatch, toggle } = useNotes();
   const { theme, changeTheme } = useTheme();
 
-  const clickHanlder = () => {
+  const clickHandler = () => {
     notesDispatch({
       type: SET_TOGGLE_SIDEBAR,
       payload: !toggle,
@@ -19,7 +19,7 @@ export const Navbar = () => {
     <nav className="navbar flex justify-between items-center p-0 sticky top-0 left-0">
       <div className="navbar-brand flex items-center justify-even">
         <span
-          onClick={() => clickHanlder()}
+          onClick={() => clickHandler()}
           class="material-icons-outlined cursor-pointer"
         >
           menu
