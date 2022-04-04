@@ -42,10 +42,16 @@ export const NotesList = () => {
             >
               <h3>{title}</h3>
               <p>{content}</p>
-              <div className="note-overlay absolute inset-0">
-                <h2 className="overlay-text absolute top-50 left-50 translate-50">
-                  Click to edit
-                </h2>
+              <div className="note-overlay absolute flex items-center justify-between">
+                <button>
+                  <span className="material-icons-outlined">archive</span>
+                </button>
+                <button>
+                  <span className="material-icons-outlined">add_alert</span>
+                </button>
+                <button>
+                  <span className="material-icons-outlined">mode_edit</span>
+                </button>
               </div>
             </div>
           ))}
