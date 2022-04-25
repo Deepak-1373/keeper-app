@@ -1,10 +1,11 @@
 import React from "react";
 import "./Modal.css";
 import { HANDLE_EDIT, HANDLE_REMOVE } from "../../reducer";
-import { useNotes } from "../../context";
+import { useNotes, useTheme } from "../../context";
 
 export const Modal = ({ modalForm, openModal, setModalForm, setOpenModal }) => {
   const { notesDispatch } = useNotes();
+  const { theme } = useTheme();
 
   const handleEdit = (id) => {
     notesDispatch({
@@ -40,7 +41,7 @@ export const Modal = ({ modalForm, openModal, setModalForm, setOpenModal }) => {
     >
       <div
         className="modal-container relative flex flex-col justify-center items-start px-4 py-3 rounded-lg border-base text-white"
-        style={{ backgroundColor: modalForm.backgroundColor }}
+        style={{ backgroundColor: modalForm.backgroundColor[theme] }}
       >
         <input
           required
