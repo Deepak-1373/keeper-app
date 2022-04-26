@@ -12,6 +12,30 @@
 }
 
 .label-modal-content {
-  width: 25rem;
   background-color: var(--background-color);
+}
+
+.label-form {
+  margin-bottom: 0.8rem;
+}
+
+.label-input {
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid var(--border-color);
+  height: 2.5rem;
+  outline: none;
+  margin: 0 1.5rem;
+  color: var(--primary-color);
+}
+
+.add-label-btn {
+  width: 3rem;
+  height: 3rem;
+  transition: all 0.2s;
+}
+
+.add-label-btn:hover {
+  border-radius: 50%;
+  background-color: var(--background-hover-color);
 }
