@@ -2,11 +2,13 @@ import React, { useState } from "react";
 import { useNotes, useTheme } from "../../context";
 import { HANDLE_SUBMIT } from "../../reducer";
 import { ColorList } from "../ColorList/ColorList";
+import { Label } from "../Label/Label";
 import "./NotesForm.css";
 
 export const NotesForm = () => {
-  const { notesDispatch } = useNotes();
+  const { notesDispatch, labels } = useNotes();
   const { theme } = useTheme();
+  const [openLabelModal, setOpenLabelModal] = useState(false);
   const [notes, setNotes] = useState({
     title: "",
     content: "",
@@ -61,10 +63,24 @@ export const NotesForm = () => {
           value={notes.content}
           onChange={(e) => handleChange(e, "content")}
         ></textarea>
+        {labels.length > 0 &&
+          labels.map((label) => <li key={label}>{label}</li>)}
         <div className="w-full flex justify-between items-center">
-          <button className="add-btn rounded-lg text-white bg-inherit px-4 py-3 border-base cursor-pointer">
-            Add
-          </button>
+          <div>
+            <button className="add-btn rounded-lg text-white bg-inherit px-4 py-3 border-base cursor-pointer">
+              Add
+            </button>
+            <button
+              className="label-btn rounded-lg text-white bg-inherit px-4 py-3 border-base cursor-pointer"
+              onClick={() => setOpenLabelModal(true)}
+            >
+              Add labels
+            </button>
+            <Label
+              openLabelModal={openLabelModal}
+              setOpenLabelModal={setOpenLabelModal}
+            />
+          </div>
           <ColorList handleColorListChange={handleColorListChange} />
         </div>
       </form>

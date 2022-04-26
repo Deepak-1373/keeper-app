@@ -4,12 +4,14 @@ import {
   HANDLE_EDIT,
   SET_SEARCH_QUERY,
   SET_TOGGLE_SIDEBAR,
+  ADD_LABEL,
 } from "./index";
 import uuid from "react-uuid";
 
 export const initialState = {
   notesList: [],
   searchQuery: "",
+  labels: [],
   toggle: false,
 };
 
@@ -61,6 +63,12 @@ export const notesReducer = (state, { type, payload }) => {
       return {
         ...state,
         notesList: state.notesList.filter(({ id }) => id !== payload),
+      };
+
+    case ADD_LABEL:
+      return {
+        ...state,
+        labels: [...state.labels, payload],
       };
 
     default:
