@@ -68,7 +68,7 @@ export const NotesForm = () => {
             labels.map((label) => (
               <div
                 key={label}
-                className="labels-list flex justify-center items-center border-base"
+                className="notesform-labels-list flex justify-center items-center border-base"
               >
                 <span>{label}</span>
               </div>
