@@ -83,7 +83,7 @@ export const NotesForm = () => {
               className="label-btn rounded-lg text-white bg-inherit px-4 py-3 border-base cursor-pointer"
               onClick={() => setOpenLabelModal(true)}
             >
-              Add labels
+              Edit labels
             </button>
             <Label
               openLabelModal={openLabelModal}

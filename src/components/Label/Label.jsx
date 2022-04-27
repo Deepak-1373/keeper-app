@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useNotes } from "../../context";
-import { ADD_LABEL } from "../../reducer";
+import { ADD_LABEL, REMOVE_LABEL } from "../../reducer";
 import "./Label.css";
 
 export const Label = ({ openLabelModal, setOpenLabelModal }) => {
@@ -14,6 +14,14 @@ export const Label = ({ openLabelModal, setOpenLabelModal }) => {
     });
     setLabelInput("");
   };
+
+  const deleteLabelHandler = (text) => {
+    notesDispatch({
+      type: REMOVE_LABEL,
+      payload: text,
+    });
+  };
+
   return (
     <div className="label-container">
       <div
@@ -45,7 +53,10 @@ export const Label = ({ openLabelModal, setOpenLabelModal }) => {
                 key={label}
               >
                 <div className="flex items-center">
-                  <button className="delete-label-btn bg-inherit text-white border-none cursor-pointer">
+                  <button
+                    className="delete-label-btn bg-inherit text-white border-none cursor-pointer"
+                    onClick={() => deleteLabelHandler(label)}
+                  >
                     <span className="text-base material-symbols-outlined">
                       delete
                     </span>

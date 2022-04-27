@@ -5,6 +5,7 @@ import {
   SET_SEARCH_QUERY,
   SET_TOGGLE_SIDEBAR,
   ADD_LABEL,
+  REMOVE_LABEL,
 } from "./index";
 import uuid from "react-uuid";
 
@@ -69,6 +70,12 @@ export const notesReducer = (state, { type, payload }) => {
       return {
         ...state,
         labels: [...state.labels, payload],
+      };
+
+    case REMOVE_LABEL:
+      return {
+        ...state,
+        labels: state.labels.filter((label) => label !== payload),
       };
 
     default:
