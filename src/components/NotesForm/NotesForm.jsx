@@ -63,8 +63,17 @@ export const NotesForm = () => {
           value={notes.content}
           onChange={(e) => handleChange(e, "content")}
         ></textarea>
-        {labels.length > 0 &&
-          labels.map((label) => <li key={label}>{label}</li>)}
+        <div className="flex px-4 py-3">
+          {labels.length > 0 &&
+            labels.map((label) => (
+              <div
+                key={label}
+                className="labels-list flex justify-center items-center border-base"
+              >
+                <span>{label}</span>
+              </div>
+            ))}
+        </div>
         <div className="w-full flex justify-between items-center">
           <div>
             <button className="add-btn rounded-lg text-white bg-inherit px-4 py-3 border-base cursor-pointer">
