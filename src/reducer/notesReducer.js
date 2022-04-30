@@ -6,6 +6,7 @@ import {
   SET_TOGGLE_SIDEBAR,
   ADD_LABEL,
   REMOVE_LABEL,
+  EDIT_LABEL,
 } from "./index";
 import uuid from "react-uuid";
 
@@ -69,13 +70,27 @@ export const notesReducer = (state, { type, payload }) => {
     case ADD_LABEL:
       return {
         ...state,
-        labels: [...state.labels, payload],
+        labels: [...state.labels, { id: uuid(), labelName: payload }],
       };
 
     case REMOVE_LABEL:
       return {
         ...state,
-        labels: state.labels.filter((label) => label !== payload),
+        labels: state.labels.filter(({ id }) => id !== payload),
+      };
+
+    case EDIT_LABEL:
+      return {
+        ...state,
+        labels: state.labels.map((label) =>
+          label.id === payload.id
+            ? {
+                ...label,
+                id: payload.id,
+                labelName: payload.labelName,
+              }
+            : label
+        ),
       };
 
     default:

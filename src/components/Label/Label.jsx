@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import { useNotes } from "../../context";
-import { ADD_LABEL, REMOVE_LABEL } from "../../reducer";
+import { ADD_LABEL } from "../../reducer";
 import "./Label.css";
+import { LabelList } from "./LabelList";
 
 export const Label = ({ openLabelModal, setOpenLabelModal }) => {
   const [labelInput, setLabelInput] = useState("");
+  const [openLabelInput, setOpenLabelInput] = useState(false);
   const { notesDispatch, labels } = useNotes();
 
   const handleLabelClick = () => {
@@ -13,13 +15,7 @@ export const Label = ({ openLabelModal, setOpenLabelModal }) => {
       payload: labelInput,
     });
     setLabelInput("");
-  };
-
-  const deleteLabelHandler = (text) => {
-    notesDispatch({
-      type: REMOVE_LABEL,
-      payload: text,
-    });
+    setOpenLabelInput(false);
   };
 
   return (
@@ -32,47 +28,46 @@ export const Label = ({ openLabelModal, setOpenLabelModal }) => {
         <div className="label-modal-content relative flex flex-col justify-center items-start px-4 py-3 rounded-lg border-base text-white">
           <p className="labels-header">Edit Labels</p>
           <div className="label-form flex">
-            <input
-              type="text"
-              onChange={(e) => setLabelInput(e.target.value)}
-              value={labelInput}
-              className="label-input border-none outline-none"
-            />
-            <button
-              className="add-label-btn rounded-lg text-white bg-inherit border-none cursor-pointer"
-              onClick={() => handleLabelClick()}
-            >
-              <span className="text-base material-symbols-outlined">check</span>
-            </button>
-          </div>
-
-          {labels.length > 0 &&
-            labels.map((label) => (
-              <div
-                className="labels-list w-full flex items-center justify-between"
-                key={label}
-              >
-                <div className="flex items-center">
-                  <button
-                    className="delete-label-btn bg-inherit text-white border-none cursor-pointer"
-                    onClick={() => deleteLabelHandler(label)}
-                  >
-                    <span className="text-base material-symbols-outlined">
-                      delete
-                    </span>
-                  </button>
-                  <li className="label-name text-base">{label}</li>
-                </div>
-                <button className="edit-label-btn bg-inherit text-white border-none cursor-pointer">
+            {openLabelInput === true ? (
+              <>
+                <input
+                  type="text"
+                  onChange={(e) => setLabelInput(e.target.value)}
+                  value={labelInput}
+                  className="label-input border-none outline-none"
+                />
+                <button
+                  className="add-label-btn rounded-lg text-white bg-inherit border-none cursor-pointer"
+                  onClick={() => handleLabelClick()}
+                >
                   <span className="text-base material-symbols-outlined">
-                    edit
+                    check
                   </span>
                 </button>
+              </>
+            ) : (
+              <button
+                type="button"
+                className="add-label-btn rounded-lg text-white bg-inherit border-none cursor-pointer"
+                onClick={() => setOpenLabelInput(true)}
+              >
+                <span className="text-base material-symbols-outlined">
+                  add_circle
+                </span>
+              </button>
+            )}
+          </div>
+
+          {labels &&
+            labels.map(({ id, labelName }) => (
+              <div className="labels-list w-full" key={id}>
+                <LabelList id={id} labelName={labelName} />
               </div>
             ))}
           <hr className="w-full" />
           <div className="w-full flex justify-end item-center">
             <button
+              type="button"
               className="modal-close-btn rounded-lg text-white bg-inherit border-none border-base cursor-pointer"
               onClick={() => setOpenLabelModal(false)}
             >

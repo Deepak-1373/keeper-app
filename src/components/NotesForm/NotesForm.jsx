@@ -64,13 +64,13 @@ export const NotesForm = () => {
           onChange={(e) => handleChange(e, "content")}
         ></textarea>
         <div className="flex px-4 py-3">
-          {labels.length > 0 &&
-            labels.map((label) => (
+          {labels &&
+            labels.map(({ id, labelName }) => (
               <div
-                key={label}
+                key={id}
                 className="notesform-labels-list flex justify-center items-center border-base"
               >
-                <span>{label}</span>
+                <span>{labelName}</span>
               </div>
             ))}
         </div>
@@ -80,6 +80,7 @@ export const NotesForm = () => {
               Add
             </button>
             <button
+              type="button"
               className="label-btn rounded-lg text-white bg-inherit px-4 py-3 border-base cursor-pointer"
               onClick={() => setOpenLabelModal(true)}
             >
