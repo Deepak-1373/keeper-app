@@ -11,14 +11,16 @@ export const NotesList = () => {
     id: "",
     title: "",
     content: "",
+    label: [],
     backgroundColor: null ?? { dark: "#121212", light: "#ffffff" },
   });
 
-  const clickHandler = (id, title, content, backgroundColor) => {
+  const clickHandler = (id, title, content, label, backgroundColor) => {
     setModalForm({
       id: id,
       title: title,
       content: content,
+      label: label,
       backgroundColor: backgroundColor,
     });
 
@@ -34,12 +36,14 @@ export const NotesList = () => {
               ? note
               : note.title.toLowerCase().includes(searchQuery.toLowerCase());
           })
-          .map(({ id, title, content, backgroundColor }) => (
+          .map(({ id, title, content, label, backgroundColor }) => (
             <div
               style={{ backgroundColor: backgroundColor[theme] }}
               key={id}
               className="note rounded-lg relative w-full px-4 py-3 border-base cursor-pointer"
-              onClick={() => clickHandler(id, title, content, backgroundColor)}
+              onClick={() =>
+                clickHandler(id, title, content, label, backgroundColor)
+              }
             >
               <h3>{title}</h3>
               <p>{content}</p>

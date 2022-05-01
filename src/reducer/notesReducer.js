@@ -32,6 +32,7 @@ export const notesReducer = (state, { type, payload }) => {
       };
 
     case HANDLE_SUBMIT:
+      console.log(payload);
       return {
         ...state,
         notesList: [
@@ -39,10 +40,12 @@ export const notesReducer = (state, { type, payload }) => {
             id: uuid(),
             title: payload.title,
             content: payload.content,
+            label: payload.label,
             backgroundColor: payload.backgroundColor,
           },
           ...state.notesList,
         ],
+        labels: [],
       };
 
     case HANDLE_EDIT:

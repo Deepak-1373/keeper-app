@@ -12,6 +12,7 @@ export const NotesForm = () => {
   const [notes, setNotes] = useState({
     title: "",
     content: "",
+    label: [],
     backgroundColor: null ?? { dark: "#121212", light: "#ffffff" },
   });
 
@@ -26,6 +27,7 @@ export const NotesForm = () => {
       payload: {
         title: notes.title,
         content: notes.content,
+        label: labels,
         backgroundColor: notes.backgroundColor,
       },
     });

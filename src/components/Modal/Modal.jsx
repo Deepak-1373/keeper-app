@@ -58,6 +58,17 @@ export const Modal = ({ modalForm, openModal, setModalForm, setOpenModal }) => {
           value={modalForm.content}
           onChange={(e) => handleChange(e, "content")}
         ></textarea>
+        <div className="flex flex-wrap">
+          {modalForm.label &&
+            modalForm.label.map(({ id, labelName }) => (
+              <div
+                key={id}
+                className="modalform-labels-list border-base cursor-pointer"
+              >
+                <span>{labelName}</span>
+              </div>
+            ))}
+        </div>
         <div className="close-modal absolute top-0 right-0">
           <button
             className="close-modal-button bg-inherit text-white border-none cursor-pointer"
