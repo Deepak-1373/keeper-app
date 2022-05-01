@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import { useNotes } from "../../context";
-import { ADD_LABEL } from "../../reducer";
-import "./Label.css";
 import { LabelList } from "./LabelList";
+import { ADD_LABEL } from "../../reducer";
+import { useNotes } from "../../context";
+import "./Label.css";
 
 export const Label = ({ openLabelModal, setOpenLabelModal }) => {
   const [labelInput, setLabelInput] = useState("");

@@ -1,5 +1,5 @@
 :root {
-  --gray-color: #6b7280;
+  --label-color: #343a40;
   --border-color: #5f6368;
   --primary-color: rgba(255, 255, 255, 0.87);
   --secondary-color: #41331c;
@@ -14,6 +14,7 @@
 }
 
 .light {
+  --label-color: #f3f4f6;
   --background-color: #ffffff;
   --primary-color: #000000;
   --secondary-color: #eab308;
