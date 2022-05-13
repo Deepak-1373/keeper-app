@@ -10,6 +10,7 @@ export const NotesForm = () => {
   const { theme } = useTheme();
   const [openLabelModal, setOpenLabelModal] = useState(false);
   const [displayColorPalette, setDisplayColorPalette] = useState(false);
+  const [activeColor, setActiveColor] = useState(0);
   const [notes, setNotes] = useState({
     title: "",
     content: "",
@@ -40,7 +41,8 @@ export const NotesForm = () => {
     });
   };
 
-  const handleColorListChange = (obj, property) => {
+  const handleColorListChange = (obj, property, index) => {
+    setActiveColor(index);
     setNotes((prev) => ({ ...prev, [obj]: property }));
   };
 
@@ -107,9 +109,12 @@ export const NotesForm = () => {
           <div
             className={`${
               displayColorPalette ? "color-palette-container" : "hide"
-            }`}
+            } mr-0 flex items-center justify-center`}
           >
-            <ColorList handleColorListChange={handleColorListChange} />
+            <ColorList
+              activeColor={activeColor}
+              handleColorListChange={handleColorListChange}
+            />
           </div>
         </div>
       </form>
