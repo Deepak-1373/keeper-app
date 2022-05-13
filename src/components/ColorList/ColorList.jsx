@@ -9,10 +9,9 @@ export const ColorList = ({ handleColorListChange, activeColor }) => {
   return (
     <>
       {colors.map((color, index) => (
-        <span className="relative flex items-start justify-end">
+        <span key={color.id} className="relative flex items-start justify-end">
           <button
             type="button"
-            key={color.id}
             className={`${
               activeColor === index ? "selected" : ""
             } color-picker cursor-pointer`}

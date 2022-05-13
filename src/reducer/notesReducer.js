@@ -32,7 +32,6 @@ export const notesReducer = (state, { type, payload }) => {
       };
 
     case HANDLE_SUBMIT:
-      console.log(payload);
       return {
         ...state,
         notesList: [
