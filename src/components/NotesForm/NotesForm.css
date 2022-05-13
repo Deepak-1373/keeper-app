@@ -30,3 +30,35 @@
 .add-btn:hover {
   background-color: var(--background-hover-color);
 }
+
+.label-btn:hover {
+  background-color: var(--background-hover-color);
+}
+
+.color-palette-icon {
+  display: none;
+  margin-right: 0.8rem;
+  padding: 1rem;
+}
+
+.color-palette-icon:hover {
+  background-color: var(--background-hover-color);
+  border-radius: 50%;
+}
+
+.color-palette-container {
+  position: absolute;
+  right: 4.5rem;
+  top: 35rem;
+  background-color: var(--search-text-background-color);
+  border-radius: 0.8rem;
+}
+
+@media screen and (max-width: 600px) {
+  .hide {
+    display: none;
+  }
+  .color-palette-icon {
+    display: inline-block;
+  }
+}

@@ -9,6 +9,7 @@ export const NotesForm = () => {
   const { notesDispatch, labels } = useNotes();
   const { theme } = useTheme();
   const [openLabelModal, setOpenLabelModal] = useState(false);
+  const [displayColorPalette, setDisplayColorPalette] = useState(false);
   const [notes, setNotes] = useState({
     title: "",
     content: "",
@@ -41,6 +42,10 @@ export const NotesForm = () => {
 
   const handleColorListChange = (obj, property) => {
     setNotes((prev) => ({ ...prev, [obj]: property }));
+  };
+
+  const colorPaletteHandler = () => {
+    setDisplayColorPalette((prev) => !prev);
   };
 
   return (
@@ -93,7 +98,19 @@ export const NotesForm = () => {
               setOpenLabelModal={setOpenLabelModal}
             />
           </div>
-          <ColorList handleColorListChange={handleColorListChange} />
+          <span
+            onClick={() => colorPaletteHandler()}
+            className="color-palette-icon cursor-pointer material-symbols-outlined"
+          >
+            palette
+          </span>
+          <div
+            className={`${
+              displayColorPalette ? "color-palette-container" : "hide"
+            }`}
+          >
+            <ColorList handleColorListChange={handleColorListChange} />
+          </div>
         </div>
       </form>
     </div>
