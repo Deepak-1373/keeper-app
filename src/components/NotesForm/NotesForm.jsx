@@ -70,7 +70,7 @@ export const NotesForm = () => {
           value={notes.content}
           onChange={(e) => handleChange(e, "content")}
         ></textarea>
-        <div className="flex px-4 py-3">
+        <div className="flex flex-wrap px-4 py-3">
           {labels &&
             labels.map(({ id, labelName }) => (
               <div
@@ -81,7 +81,7 @@ export const NotesForm = () => {
               </div>
             ))}
         </div>
-        <div className="w-full flex justify-between items-center">
+        <div className="w-full relative flex justify-between items-center">
           <div>
             <button className="add-btn rounded-lg text-white bg-inherit px-4 py-3 border-base cursor-pointer">
               Add
