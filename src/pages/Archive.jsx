@@ -6,11 +6,10 @@ export const Archive = () => {
   const { archiveList, searchQuery } = useNotes();
   const { theme } = useTheme();
 
-  console.log(archiveList);
   return (
     <div className="container">
       <Sidebar />
-      <div className="flex justify-start items-start flex-wrap">
+      <div className="flex justify-start content-start flex-wrap">
         {archiveList &&
           archiveList
             .filter((note) => {
@@ -28,7 +27,7 @@ export const Archive = () => {
                 <p>{content}</p>
                 <div
                   key={id}
-                  className="flex flex-wrap justify-start items-start cursor-pointer"
+                  className="flex flex-wrap justify-start content-start cursor-pointer"
                 >
                   {label &&
                     label.map(({ id, labelName }) => (
@@ -37,6 +36,9 @@ export const Archive = () => {
                       </span>
                     ))}
                 </div>
+                <span className="select-archive-icon absolute material-symbols-outlined">
+                  done
+                </span>
               </div>
             ))}
       </div>

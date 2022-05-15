@@ -23,3 +23,12 @@
   border-radius: 1.2rem;
   border: 1px solid;
 }
+
+.select-archive-icon {
+  top: -1rem;
+  left: -1rem;
+  background-color: white;
+  font-size: 2rem;
+  border-radius: 50%;
+  color: var(--background-color);
+}

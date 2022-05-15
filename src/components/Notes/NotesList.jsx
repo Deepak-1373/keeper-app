@@ -28,7 +28,7 @@ export const NotesList = () => {
   };
 
   return (
-    <div className="notes-list-container flex justify-center items-start flex-wrap relative">
+    <div className="notes-list-container flex justify-center content-start flex-wrap relative">
       {notesList &&
         notesList
           .filter((note) => {
