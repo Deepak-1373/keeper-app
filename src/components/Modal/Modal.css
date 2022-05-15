@@ -38,14 +38,10 @@
   border-radius: 50%;
 }
 
-.edit-btn {
+.btn {
   margin-right: 1.2rem;
 }
 
-.edit-btn:hover {
-  background-color: var(--background-hover-color);
-}
-
-.remove-btn:hover {
+.btn:hover {
   background-color: var(--background-hover-color);
 }

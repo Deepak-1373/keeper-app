@@ -7,11 +7,13 @@ import {
   ADD_LABEL,
   REMOVE_LABEL,
   EDIT_LABEL,
+  HANDLE_ARCHIVE,
 } from "./index";
 import uuid from "react-uuid";
 
 export const initialState = {
   notesList: [],
+  archiveList: [],
   searchQuery: "",
   labels: [],
   toggle: false,
@@ -93,6 +95,22 @@ export const notesReducer = (state, { type, payload }) => {
               }
             : label
         ),
+      };
+
+    case HANDLE_ARCHIVE:
+      return {
+        ...state,
+        notesList: state.notesList.filter(({ id }) => id !== payload.currId),
+        archiveList: [
+          {
+            id: payload.id,
+            title: payload.title,
+            content: payload.content,
+            label: payload.label,
+            backgroundColor: payload.backgroundColor,
+          },
+          ...state.archiveList,
+        ],
       };
 
     default:

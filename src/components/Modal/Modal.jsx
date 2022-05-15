@@ -1,6 +1,6 @@
 import React from "react";
 import "./Modal.css";
-import { HANDLE_EDIT, HANDLE_REMOVE } from "../../reducer";
+import { HANDLE_EDIT, HANDLE_REMOVE, HANDLE_ARCHIVE } from "../../reducer";
 import { useNotes, useTheme } from "../../context";
 
 export const Modal = ({ modalForm, openModal, setModalForm, setOpenModal }) => {
@@ -31,6 +31,20 @@ export const Modal = ({ modalForm, openModal, setModalForm, setOpenModal }) => {
 
   const handleChange = (e, field) => {
     setModalForm((prev) => ({ ...prev, [field]: e.target.value }));
+  };
+
+  const handleArchive = (id) => {
+    notesDispatch({
+      type: HANDLE_ARCHIVE,
+      payload: {
+        currId: id,
+        id: modalForm.id,
+        title: modalForm.title,
+        content: modalForm.content,
+        backgroundColor: modalForm.backgroundColor,
+      },
+    });
+    setOpenModal(false);
   };
 
   return (
@@ -77,19 +91,27 @@ export const Modal = ({ modalForm, openModal, setModalForm, setOpenModal }) => {
             <span className="material-icons-outlined">close</span>
           </button>
         </div>
-        <div className="w-full flex justify-end items-center">
+        <div className="w-full flex justify-between items-center">
           <button
-            className="edit-btn px-4 py-3 rounded-lg bg-inherit text-white border-base cursor-pointer"
-            onClick={() => handleEdit(modalForm.id)}
+            className="btn px-4 py-3 rounded-lg bg-inherit text-white border-base cursor-pointer"
+            onClick={() => handleArchive(modalForm.id)}
           >
-            Edit
+            Move to Archive
           </button>
-          <button
-            className="remove-btn px-4 py-3 rounded-lg bg-inherit text-white border-base cursor-pointer"
-            onClick={() => handleRemove(modalForm.id)}
-          >
-            Remove
-          </button>
+          <div>
+            <button
+              className="btn px-4 py-3 rounded-lg bg-inherit text-white border-base cursor-pointer"
+              onClick={() => handleEdit(modalForm.id)}
+            >
+              Edit
+            </button>
+            <button
+              className="btn px-4 py-3 rounded-lg bg-inherit text-white border-base cursor-pointer"
+              onClick={() => handleRemove(modalForm.id)}
+            >
+              Remove
+            </button>
+          </div>
         </div>
       </div>
     </div>
