@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import { useNotes, useTheme } from "../../context";
 import { HANDLE_SUBMIT } from "../../reducer";
 import { ColorList } from "../ColorList/ColorList";
@@ -95,6 +96,7 @@ export const NotesForm = () => {
             >
               Edit labels
             </button>
+            <Link to="/archive">Archive</Link>
             <Label
               openLabelModal={openLabelModal}
               setOpenLabelModal={setOpenLabelModal}

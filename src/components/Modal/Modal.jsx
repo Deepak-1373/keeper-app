@@ -40,6 +40,7 @@ export const Modal = ({ modalForm, openModal, setModalForm, setOpenModal }) => {
         currId: id,
         id: modalForm.id,
         title: modalForm.title,
+        label: modalForm.label,
         content: modalForm.content,
         backgroundColor: modalForm.backgroundColor,
       },
@@ -72,13 +73,10 @@ export const Modal = ({ modalForm, openModal, setModalForm, setOpenModal }) => {
           value={modalForm.content}
           onChange={(e) => handleChange(e, "content")}
         ></textarea>
-        <div className="flex flex-wrap">
+        <div className="px-4 py-3 flex flex-wrap">
           {modalForm.label &&
             modalForm.label.map(({ id, labelName }) => (
-              <div
-                key={id}
-                className="modalform-labels-list border-base cursor-pointer"
-              >
+              <div key={id} className="modalform-labels-list cursor-pointer">
                 <span>{labelName}</span>
               </div>
             ))}
