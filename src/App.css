@@ -27,7 +27,7 @@
 .select-archive-icon {
   top: -1rem;
   left: -1rem;
-  background-color: white;
+  background-color: var(--primary-color);
   font-size: 2rem;
   border-radius: 50%;
   color: var(--background-color);
