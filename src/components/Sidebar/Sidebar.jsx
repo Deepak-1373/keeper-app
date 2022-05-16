@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { sidebarNames } from "./data";
 import { useNotes } from "../../context";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import "./Sidebar.css";
 
 export const Sidebar = () => {
@@ -12,14 +12,12 @@ export const Sidebar = () => {
     setActive(listIdx);
   };
 
-  console.log(active);
-
   return (
     <div
       className={`${toggle ? "hide-list" : "show-list"} sidebar flex flex-col`}
     >
       {sidebarNames.map(({ id, sidebarName, iconName, path }, idx) => (
-        <Link to={path} key={id}>
+        <NavLink to={path} key={id}>
           <ul
             onClick={() => handleSidebarClick(idx)}
             className={`${
@@ -33,7 +31,7 @@ export const Sidebar = () => {
               {sidebarName}
             </li>
           </ul>
-        </Link>
+        </NavLink>
       ))}
     </div>
   );

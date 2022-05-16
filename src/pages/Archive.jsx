@@ -8,7 +8,7 @@ export const Archive = () => {
   const [selectPosition, setSelectPosition] = useState();
 
   const selectArchiveHandler = (idx) => {
-    setSelectPosition(idx);
+    selectPosition === idx ? setSelectPosition() : setSelectPosition(idx);
   };
 
   const resetArchiveHandler = (id, title, content, label, backgroundColor) => {
