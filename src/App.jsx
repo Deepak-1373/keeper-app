@@ -2,7 +2,7 @@ import "./App.css";
 import { Navbar } from "./components";
 import { useTheme } from "./context";
 import { Routes, Route } from "react-router-dom";
-import { Home, Archive, NotFound, Layout } from "./pages";
+import { Home, Archive, NotFound, Layout, Bin } from "./pages";
 
 const App = () => {
   const { theme } = useTheme();
@@ -13,7 +13,7 @@ const App = () => {
         <Route to="/" element={<Layout />}>
           <Route path="/" element={<Home />} />
           <Route path="/archive" element={<Archive />} />
-          <Route path="/bin" element={<Home />} />
+          <Route path="/bin" element={<Bin />} />
         </Route>
         <Route path="*" element={<NotFound />} />
       </Routes>

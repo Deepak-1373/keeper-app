@@ -1,6 +1,6 @@
 import React from "react";
 import "./Modal.css";
-import { HANDLE_EDIT, HANDLE_REMOVE, HANDLE_ARCHIVE } from "../../reducer";
+import { HANDLE_EDIT, HANDLE_ARCHIVE, HANDLE_BIN } from "../../reducer";
 import { useNotes, useTheme } from "../../context";
 
 export const Modal = ({ modalForm, openModal, setModalForm, setOpenModal }) => {
@@ -21,10 +21,16 @@ export const Modal = ({ modalForm, openModal, setModalForm, setOpenModal }) => {
     setOpenModal(false);
   };
 
-  const handleRemove = (id) => {
+  const handleBin = () => {
     notesDispatch({
-      type: HANDLE_REMOVE,
-      payload: id,
+      type: HANDLE_BIN,
+      payload: {
+        id: modalForm.id,
+        title: modalForm.title,
+        content: modalForm.content,
+        label: modalForm.label,
+        backgroundColor: modalForm.backgroundColor,
+      },
     });
     setOpenModal(false);
   };
@@ -105,9 +111,9 @@ export const Modal = ({ modalForm, openModal, setModalForm, setOpenModal }) => {
             </button>
             <button
               className="btn px-4 py-3 rounded-lg bg-inherit text-white border-base cursor-pointer"
-              onClick={() => handleRemove(modalForm.id)}
+              onClick={() => handleBin()}
             >
-              Remove
+              Move to Bin
             </button>
           </div>
         </div>
