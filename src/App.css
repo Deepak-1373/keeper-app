@@ -32,3 +32,14 @@
   border-radius: 50%;
   color: var(--background-color);
 }
+
+.archive-icon {
+  padding: 0.8rem;
+  margin-top: 0.8rem;
+  transition: all 0.2s;
+  border-radius: 50%;
+}
+
+.archive-icon:hover {
+  background-color: var(--background-hover-color);
+}

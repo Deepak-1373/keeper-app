@@ -1,10 +1,29 @@
-import React from "react";
+import React, { useState } from "react";
 import { Sidebar } from "../components";
 import { useNotes, useTheme } from "../context";
+import { RESET_ARCHIVE_NOTE } from "../reducer";
 
 export const Archive = () => {
-  const { archiveList, searchQuery } = useNotes();
+  const { archiveList, searchQuery, notesDispatch } = useNotes();
   const { theme } = useTheme();
+  const [selectPosition, setSelectPosition] = useState();
+
+  const selectArchiveHandler = (idx) => {
+    setSelectPosition(idx);
+  };
+
+  const resetArchiveHandler = (id, title, content, label, backgroundColor) => {
+    notesDispatch({
+      type: RESET_ARCHIVE_NOTE,
+      payload: {
+        id: id,
+        title: title,
+        content: content,
+        label: label,
+        backgroundColor: backgroundColor,
+      },
+    });
+  };
 
   return (
     <div className="container">
@@ -17,18 +36,18 @@ export const Archive = () => {
                 ? note
                 : note.title.toLowerCase().includes(searchQuery.toLowerCase());
             })
-            .map(({ id, title, content, label, backgroundColor }) => (
+            .map(({ id, title, content, label, backgroundColor }, index) => (
               <div
                 style={{ backgroundColor: backgroundColor[theme] }}
                 key={id}
-                className="note rounded-lg relative w-full px-4 py-3 border-base cursor-pointer"
+                className={`${
+                  selectPosition === index && "border-lg"
+                } note rounded-lg relative w-full px-4 py-3 border-base cursor-pointer`}
+                onClick={() => selectArchiveHandler(index)}
               >
                 <h3>{title}</h3>
                 <p>{content}</p>
-                <div
-                  key={id}
-                  className="flex flex-wrap justify-start content-start cursor-pointer"
-                >
+                <div className="flex flex-wrap justify-start content-start cursor-pointer">
                   {label &&
                     label.map(({ id, labelName }) => (
                       <span className="archive-labels-list" key={id}>
@@ -36,8 +55,32 @@ export const Archive = () => {
                       </span>
                     ))}
                 </div>
-                <span className="select-archive-icon absolute material-symbols-outlined">
+                <span
+                  className={`${
+                    selectPosition === index
+                      ? "select-archive-icon absolute"
+                      : "hide-done-icon"
+                  }  material-symbols-outlined`}
+                >
                   done
+                </span>
+                <span
+                  className={`${
+                    selectPosition === index
+                      ? "show-done-icon"
+                      : "hide-done-icon"
+                  } archive-icon py-3 material-symbols-outlined`}
+                  onClick={() =>
+                    resetArchiveHandler(
+                      id,
+                      title,
+                      content,
+                      label,
+                      backgroundColor
+                    )
+                  }
+                >
+                  archive
                 </span>
               </div>
             ))}

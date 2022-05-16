@@ -138,6 +138,10 @@
   border: 1px solid var(--border-color);
 }
 
+.border-lg {
+  border: 1px solid;
+}
+
 /* outline */
 .outline-none {
   outline: none;

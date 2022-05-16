@@ -7,3 +7,4 @@ export const ADD_LABEL = "ADD_LABEL";
 export const REMOVE_LABEL = "REMOVE_LABEL";
 export const EDIT_LABEL = "EDIT_LABEL";
 export const HANDLE_ARCHIVE = "HANDLE_ARCHIVE";
+export const RESET_ARCHIVE_NOTE = "RESET_ARCHIVE_NOTE";

@@ -8,6 +8,7 @@ import {
   REMOVE_LABEL,
   EDIT_LABEL,
   HANDLE_ARCHIVE,
+  RESET_ARCHIVE_NOTE,
 } from "./index";
 import uuid from "react-uuid";
 
@@ -110,6 +111,22 @@ export const notesReducer = (state, { type, payload }) => {
             backgroundColor: payload.backgroundColor,
           },
           ...state.archiveList,
+        ],
+      };
+
+    case RESET_ARCHIVE_NOTE:
+      return {
+        ...state,
+        archiveList: state.archiveList.filter(({ id }) => id !== payload.id),
+        notesList: [
+          {
+            id: payload.id,
+            title: payload.title,
+            content: payload.content,
+            label: payload.label,
+            backgroundColor: payload.backgroundColor,
+          },
+          ...state.notesList,
         ],
       };
 

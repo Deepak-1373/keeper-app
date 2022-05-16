@@ -8,7 +8,8 @@
 }
 
 .note {
-  height: 10rem;
+  min-height: 10rem;
+  height: fit-content;
   max-width: 25rem;
   margin: 2.5rem;
 }
