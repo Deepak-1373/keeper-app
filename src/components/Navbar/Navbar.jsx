@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import bulbImage from "../../assests/bulb.png";
 import { useNotes, useTheme } from "../../context";
 import { SET_SEARCH_QUERY, SET_TOGGLE_SIDEBAR } from "../../reducer";
@@ -25,7 +26,9 @@ export const Navbar = () => {
           menu
         </span>
         <img src={bulbImage} alt="Keeper App" />
-        <p className="text-white text-2xl">Keeper</p>
+        <Link to="/">
+          <p className="text-white text-2xl cursor-pointer">Keeper</p>
+        </Link>
       </div>
 
       <input

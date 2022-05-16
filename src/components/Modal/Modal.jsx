@@ -1,6 +1,6 @@
 import React from "react";
 import "./Modal.css";
-import { HANDLE_EDIT, HANDLE_REMOVE } from "../../reducer";
+import { HANDLE_EDIT, HANDLE_ARCHIVE, HANDLE_BIN } from "../../reducer";
 import { useNotes, useTheme } from "../../context";
 
 export const Modal = ({ modalForm, openModal, setModalForm, setOpenModal }) => {
@@ -21,16 +21,37 @@ export const Modal = ({ modalForm, openModal, setModalForm, setOpenModal }) => {
     setOpenModal(false);
   };
 
-  const handleRemove = (id) => {
+  const handleBin = () => {
     notesDispatch({
-      type: HANDLE_REMOVE,
-      payload: id,
+      type: HANDLE_BIN,
+      payload: {
+        id: modalForm.id,
+        title: modalForm.title,
+        content: modalForm.content,
+        label: modalForm.label,
+        backgroundColor: modalForm.backgroundColor,
+      },
     });
     setOpenModal(false);
   };
 
   const handleChange = (e, field) => {
     setModalForm((prev) => ({ ...prev, [field]: e.target.value }));
+  };
+
+  const handleArchive = (id) => {
+    notesDispatch({
+      type: HANDLE_ARCHIVE,
+      payload: {
+        currId: id,
+        id: modalForm.id,
+        title: modalForm.title,
+        label: modalForm.label,
+        content: modalForm.content,
+        backgroundColor: modalForm.backgroundColor,
+      },
+    });
+    setOpenModal(false);
   };
 
   return (
@@ -58,13 +79,10 @@ export const Modal = ({ modalForm, openModal, setModalForm, setOpenModal }) => {
           value={modalForm.content}
           onChange={(e) => handleChange(e, "content")}
         ></textarea>
-        <div className="flex flex-wrap">
+        <div className="px-4 py-3 flex flex-wrap">
           {modalForm.label &&
             modalForm.label.map(({ id, labelName }) => (
-              <div
-                key={id}
-                className="modalform-labels-list border-base cursor-pointer"
-              >
+              <div key={id} className="modalform-labels-list cursor-pointer">
                 <span>{labelName}</span>
               </div>
             ))}
@@ -77,19 +95,27 @@ export const Modal = ({ modalForm, openModal, setModalForm, setOpenModal }) => {
             <span className="material-icons-outlined">close</span>
           </button>
         </div>
-        <div className="w-full flex justify-end items-center">
+        <div className="w-full flex justify-between items-center">
           <button
-            className="edit-btn px-4 py-3 rounded-lg bg-inherit text-white border-base cursor-pointer"
-            onClick={() => handleEdit(modalForm.id)}
+            className="btn px-4 py-3 rounded-lg bg-inherit text-white border-base cursor-pointer"
+            onClick={() => handleArchive(modalForm.id)}
           >
-            Edit
+            Move to Archive
           </button>
-          <button
-            className="remove-btn px-4 py-3 rounded-lg bg-inherit text-white border-base cursor-pointer"
-            onClick={() => handleRemove(modalForm.id)}
-          >
-            Remove
-          </button>
+          <div>
+            <button
+              className="btn px-4 py-3 rounded-lg bg-inherit text-white border-base cursor-pointer"
+              onClick={() => handleEdit(modalForm.id)}
+            >
+              Edit
+            </button>
+            <button
+              className="btn px-4 py-3 rounded-lg bg-inherit text-white border-base cursor-pointer"
+              onClick={() => handleBin()}
+            >
+              Move to Bin
+            </button>
+          </div>
         </div>
       </div>
     </div>

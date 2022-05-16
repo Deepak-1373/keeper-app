@@ -4,8 +4,10 @@ import { initialState, notesReducer } from "../reducer";
 const notesContext = createContext(null);
 
 const NotesContextProvider = ({ children }) => {
-  const [{ notesList, searchQuery, labels, toggle }, notesDispatch] =
-    useReducer(notesReducer, initialState);
+  const [
+    { notesList, searchQuery, labels, toggle, archiveList, binList },
+    notesDispatch,
+  ] = useReducer(notesReducer, initialState);
 
   return (
     <notesContext.Provider
@@ -14,6 +16,8 @@ const NotesContextProvider = ({ children }) => {
         searchQuery,
         labels,
         toggle,
+        archiveList,
+        binList,
         notesDispatch,
       }}
     >

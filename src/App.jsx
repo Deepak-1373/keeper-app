@@ -1,19 +1,22 @@
 import "./App.css";
-import { Navbar, Sidebar, NotesForm, NotesList } from "./components";
+import { Navbar } from "./components";
 import { useTheme } from "./context";
+import { Routes, Route } from "react-router-dom";
+import { Home, Archive, NotFound, Layout, Bin } from "./pages";
 
 const App = () => {
   const { theme } = useTheme();
   return (
     <div className={`app ${theme}`}>
       <Navbar />
-      <div className="container">
-        <Sidebar />
-        <div className="notes-container">
-          <NotesForm />
-          <NotesList />
-        </div>
-      </div>
+      <Routes>
+        <Route to="/" element={<Layout />}>
+          <Route path="/" element={<Home />} />
+          <Route path="/archive" element={<Archive />} />
+          <Route path="/bin" element={<Bin />} />
+        </Route>
+        <Route path="*" element={<NotFound />} />
+      </Routes>
     </div>
   );
 };

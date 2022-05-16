@@ -41,6 +41,10 @@
   flex-wrap: wrap;
 }
 
+.justify-start {
+  justify-content: flex-start;
+}
+
 .justify-between {
   justify-content: space-between;
 }
@@ -63,6 +67,10 @@
 
 .items-start {
   align-items: flex-start;
+}
+
+.content-start {
+  align-content: flex-start;
 }
 
 /* position */
@@ -130,6 +138,10 @@
   border: 1px solid var(--border-color);
 }
 
+.border-lg {
+  border: 1px solid;
+}
+
 /* outline */
 .outline-none {
   outline: none;
@@ -161,6 +173,10 @@
 }
 
 /* margin */
+.m-auto {
+  margin: auto;
+}
+
 .mr-0 {
   margin-right: 1.2rem;
 }

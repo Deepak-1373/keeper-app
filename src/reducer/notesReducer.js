@@ -1,17 +1,23 @@
 import {
   HANDLE_SUBMIT,
-  HANDLE_REMOVE,
   HANDLE_EDIT,
   SET_SEARCH_QUERY,
   SET_TOGGLE_SIDEBAR,
   ADD_LABEL,
   REMOVE_LABEL,
   EDIT_LABEL,
+  HANDLE_ARCHIVE,
+  RESET_ARCHIVE_NOTE,
+  HANDLE_BIN,
+  MOVE_TO_ARCHIVE_FROM_BIN,
+  DELETE_FOREVER,
 } from "./index";
 import uuid from "react-uuid";
 
 export const initialState = {
   notesList: [],
+  archiveList: [],
+  binList: [],
   searchQuery: "",
   labels: [],
   toggle: false,
@@ -63,12 +69,6 @@ export const notesReducer = (state, { type, payload }) => {
         ),
       };
 
-    case HANDLE_REMOVE:
-      return {
-        ...state,
-        notesList: state.notesList.filter(({ id }) => id !== payload),
-      };
-
     case ADD_LABEL:
       return {
         ...state,
@@ -93,6 +93,76 @@ export const notesReducer = (state, { type, payload }) => {
               }
             : label
         ),
+      };
+
+    case HANDLE_ARCHIVE:
+      return {
+        ...state,
+        notesList: state.notesList.filter(({ id }) => id !== payload.currId),
+        archiveList: [
+          {
+            id: payload.id,
+            title: payload.title,
+            content: payload.content,
+            label: payload.label,
+            backgroundColor: payload.backgroundColor,
+          },
+          ...state.archiveList,
+        ],
+      };
+
+    case RESET_ARCHIVE_NOTE:
+      return {
+        ...state,
+        archiveList: state.archiveList.filter(({ id }) => id !== payload.id),
+        notesList: [
+          {
+            id: payload.id,
+            title: payload.title,
+            content: payload.content,
+            label: payload.label,
+            backgroundColor: payload.backgroundColor,
+          },
+          ...state.notesList,
+        ],
+      };
+
+    case HANDLE_BIN:
+      return {
+        ...state,
+        notesList: state.notesList.filter(({ id }) => id !== payload.id),
+        binList: [
+          {
+            id: payload.id,
+            title: payload.title,
+            content: payload.content,
+            label: payload.label,
+            backgroundColor: payload.backgroundColor,
+          },
+          ...state.binList,
+        ],
+      };
+
+    case MOVE_TO_ARCHIVE_FROM_BIN:
+      return {
+        ...state,
+        binList: state.binList.filter(({ id }) => id !== payload.id),
+        archiveList: [
+          {
+            id: payload.id,
+            title: payload.title,
+            content: payload.content,
+            label: payload.label,
+            backgroundColor: payload.backgroundColor,
+          },
+          ...state.archiveList,
+        ],
+      };
+
+    case DELETE_FOREVER:
+      return {
+        ...state,
+        binList: state.binList.filter(({ id }) => id !== payload),
       };
 
     default:

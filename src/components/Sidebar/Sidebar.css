@@ -31,7 +31,7 @@
 }
 
 .show-names {
-  display: block;
+  display: inline-block;
 }
 
 .hide-names {
