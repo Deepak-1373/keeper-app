@@ -33,7 +33,7 @@ export const Bin = () => {
 
   return (
     <div className="flex justify-start content-start flex-wrap">
-      {binList &&
+      {binList.length > 0 ? (
         binList
           .filter((note) => {
             return !searchQuery
@@ -99,7 +99,15 @@ export const Bin = () => {
                 </span>
               </div>
             </div>
-          ))}
+          ))
+      ) : (
+        <div className="flex flex-col justify-center items-center h-full m-auto">
+          <span className="archive-icon-lg material-symbols-outlined">
+            delete
+          </span>
+          <h3 className="archive-text-lg">No notes in Recycle Bin</h3>
+        </div>
+      )}
     </div>
   );
 };

@@ -45,6 +45,17 @@
   background-color: var(--background-hover-color);
 }
 
+.archive-text-lg {
+  font-size: 3.2rem;
+  margin-top: 1.2rem;
+  color: var(--not-present-text);
+}
+
+.archive-icon-lg {
+  font-size: 12rem;
+  color: var(--not-present-icon);
+}
+
 /* Page not Found */
 .page-not-found-container {
   width: 100%;
@@ -62,4 +73,14 @@
 .page-not-found-icon {
   margin-right: 0.8rem;
   transition: all 0.3s;
+}
+
+@media screen and (max-width: 600px) {
+  .archive-text-lg {
+    font-size: 1.8rem;
+  }
+
+  .archive-icon-lg {
+    font-size: 10rem;
+  }
 }

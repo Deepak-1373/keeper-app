@@ -26,7 +26,7 @@ export const Archive = () => {
 
   return (
     <div className="flex justify-start content-start flex-wrap">
-      {archiveList &&
+      {archiveList.length > 0 ? (
         archiveList
           .filter((note) => {
             return !searchQuery
@@ -78,7 +78,15 @@ export const Archive = () => {
                 archive
               </span>
             </div>
-          ))}
+          ))
+      ) : (
+        <div className="flex flex-col justify-center items-center h-full m-auto">
+          <span className="archive-icon-lg material-symbols-outlined">
+            archive
+          </span>
+          <h3 className="archive-text-lg">Your archive notes appear here</h3>
+        </div>
+      )}
     </div>
   );
 };
