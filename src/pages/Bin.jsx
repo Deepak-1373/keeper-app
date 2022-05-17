@@ -69,34 +69,40 @@ export const Bin = () => {
                 done
               </span>
               <div className="flex items-center justify-between">
-                <span
-                  className={`${
-                    selectPosition === index
-                      ? "show-done-icon"
-                      : "hide-done-icon"
-                  } archive-icon py-3 material-symbols-outlined`}
-                  onClick={() =>
-                    moveToArchiveHandler(
-                      id,
-                      title,
-                      content,
-                      label,
-                      backgroundColor
-                    )
-                  }
-                >
-                  archive
-                </span>
-                <span
-                  className={`${
-                    selectPosition === index
-                      ? "show-done-icon"
-                      : "hide-done-icon"
-                  } archive-icon py-3 material-symbols-outlined`}
-                  onClick={() => deleteForeverHandler(id)}
-                >
-                  delete_forever
-                </span>
+                <button className="tooltip bg-inherit text-white border-none cursor-pointer">
+                  <span
+                    className={`${
+                      selectPosition === index
+                        ? "show-done-icon"
+                        : "hide-done-icon"
+                    } archive-icon py-3 material-symbols-outlined`}
+                    onClick={() =>
+                      moveToArchiveHandler(
+                        id,
+                        title,
+                        content,
+                        label,
+                        backgroundColor
+                      )
+                    }
+                  >
+                    archive
+                  </span>
+                  <span className="tooltip-text">Archive</span>
+                </button>
+                <button className="tooltip bg-inherit text-white border-none cursor-pointer">
+                  <span
+                    className={`${
+                      selectPosition === index
+                        ? "show-done-icon"
+                        : "hide-done-icon"
+                    } archive-icon py-3 material-symbols-outlined`}
+                    onClick={() => deleteForeverHandler(id)}
+                  >
+                    delete_forever
+                  </span>
+                  <span className="tooltip-text">Delete Forever</span>
+                </button>
               </div>
             </div>
           ))
