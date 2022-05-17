@@ -42,6 +42,10 @@
   padding: 0.8rem;
 }
 
+.theme-btn:hover {
+  background-color: var(--background-hover-color);
+}
+
 .theme-btn i {
   font-size: 2rem;
 }

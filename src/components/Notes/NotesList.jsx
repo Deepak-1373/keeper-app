@@ -48,14 +48,16 @@ export const NotesList = () => {
               <h3>{title}</h3>
               <p>{content}</p>
               <div className="note-overlay absolute flex items-center justify-between">
-                <button>
+                <button className="tooltip">
                   <span className="material-icons-outlined">archive</span>
+                  <span className="tooltip-text">Archive</span>
                 </button>
                 <button>
                   <span className="material-icons-outlined">add_alert</span>
                 </button>
-                <button>
+                <button className="tooltip">
                   <span className="material-icons-outlined">mode_edit</span>
+                  <span className="tooltip-text">Edit</span>
                 </button>
               </div>
             </div>

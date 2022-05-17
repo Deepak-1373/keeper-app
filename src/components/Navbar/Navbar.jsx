@@ -25,7 +25,9 @@ export const Navbar = () => {
         >
           menu
         </span>
-        <img src={bulbImage} alt="Keeper App" />
+        <Link to="/">
+          <img src={bulbImage} alt="Keeper App" />
+        </Link>
         <Link to="/">
           <p className="text-white text-2xl cursor-pointer">Keeper</p>
         </Link>
@@ -44,12 +46,15 @@ export const Navbar = () => {
         }
       ></input>
       <button
-        className="theme-btn bg-inherit rounded-lg text-white border-base cursor-pointer"
+        className="theme-btn bg-inherit rounded-lg border-none text-white cursor-pointer tooltip"
         onClick={changeTheme}
       >
         <i
           className={`fa-solid ${theme === "light" ? "fa-moon" : "fa-sun"}`}
         ></i>
+        <span className="tooltip-text">
+          Change to {theme === "dark" ? "light" : "dark"}
+        </span>
       </button>
     </nav>
   );

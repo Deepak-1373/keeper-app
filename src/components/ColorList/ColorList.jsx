@@ -9,7 +9,10 @@ export const ColorList = ({ handleColorListChange, activeColor }) => {
   return (
     <>
       {colors.map((color, index) => (
-        <span key={color.id} className="relative flex items-start justify-end">
+        <span
+          key={color.id}
+          className="relative flex items-start justify-end tooltip"
+        >
           <button
             type="button"
             className={`${
@@ -22,6 +25,7 @@ export const ColorList = ({ handleColorListChange, activeColor }) => {
               handleColorListChange("backgroundColor", color, index)
             }
           ></button>
+          <span className="tooltip-text">{color.text}</span>
           <span
             className={`${
               activeColor === index ? "show-done-icon" : "hide-done-icon"
