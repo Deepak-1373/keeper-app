@@ -44,12 +44,15 @@ export const Navbar = () => {
         }
       ></input>
       <button
-        className="theme-btn bg-inherit rounded-lg text-white border-base cursor-pointer"
+        className="theme-btn bg-inherit rounded-lg text-white border-base cursor-pointer tooltip"
         onClick={changeTheme}
       >
         <i
           className={`fa-solid ${theme === "light" ? "fa-moon" : "fa-sun"}`}
         ></i>
+        <span className="tooltip-text">
+          Change to {theme === "dark" ? "light" : "dark"}
+        </span>
       </button>
     </nav>
   );

@@ -17,6 +17,34 @@
   grid-template-areas: "sidebar main";
 }
 
+/* tooltip */
+.tooltip {
+  position: relative;
+}
+
+.tooltip .tooltip-text {
+  position: absolute;
+  opacity: 0;
+  top: 140%;
+  right: 0;
+  z-index: 2;
+  font-weight: 400;
+  font-size: 1.2rem;
+  padding: 4px 6px;
+  max-width: 15rem;
+  width: max-content;
+  text-transform: none;
+  letter-spacing: 0.8px;
+  border-radius: 4px;
+  color: var(--primary-color);
+  transition: opacity 0.2s ease-in-out;
+  background-color: var(--background-hover-color);
+}
+
+.tooltip:hover .tooltip-text {
+  opacity: 1;
+}
+
 /* Archive page */
 .archive-labels-list {
   padding: 0.5rem 1rem;
@@ -82,5 +110,9 @@
 
   .archive-icon-lg {
     font-size: 10rem;
+  }
+
+  .tooltip .tooltip-text {
+    right: 0;
   }
 }
