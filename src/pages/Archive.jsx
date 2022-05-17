@@ -61,22 +61,27 @@ export const Archive = () => {
               >
                 done
               </span>
-              <span
-                className={`${
-                  selectPosition === index ? "show-done-icon" : "hide-done-icon"
-                } archive-icon py-3 material-symbols-outlined`}
-                onClick={() =>
-                  resetArchiveHandler(
-                    id,
-                    title,
-                    content,
-                    label,
-                    backgroundColor
-                  )
-                }
-              >
-                archive
-              </span>
+              <button className="bg-inherit border-none cursor-pointer text-white tooltip">
+                <span
+                  className={`${
+                    selectPosition === index
+                      ? "show-done-icon"
+                      : "hide-done-icon"
+                  } archive-icon py-3 material-symbols-outlined tooltip`}
+                  onClick={() =>
+                    resetArchiveHandler(
+                      id,
+                      title,
+                      content,
+                      label,
+                      backgroundColor
+                    )
+                  }
+                >
+                  archive
+                </span>
+                <span className="tooltip-text">Unarchive</span>
+              </button>
             </div>
           ))
       ) : (
