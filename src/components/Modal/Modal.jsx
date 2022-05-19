@@ -1,11 +1,13 @@
 import React from "react";
-import "./Modal.css";
 import { HANDLE_EDIT, HANDLE_ARCHIVE, HANDLE_BIN } from "../../reducer";
 import { useNotes, useTheme } from "../../context";
+import { useToast } from "../../hooks/showToast";
+import "./Modal.css";
 
 export const Modal = ({ modalForm, openModal, setModalForm, setOpenModal }) => {
-  const { notesDispatch } = useNotes();
   const { theme } = useTheme();
+  const { showToast } = useToast();
+  const { notesDispatch } = useNotes();
 
   const handleEdit = (id) => {
     notesDispatch({
@@ -32,6 +34,7 @@ export const Modal = ({ modalForm, openModal, setModalForm, setOpenModal }) => {
         backgroundColor: modalForm.backgroundColor,
       },
     });
+    showToast("info", "Note moved to recycle bin");
     setOpenModal(false);
   };
 
@@ -51,6 +54,7 @@ export const Modal = ({ modalForm, openModal, setModalForm, setOpenModal }) => {
         backgroundColor: modalForm.backgroundColor,
       },
     });
+    showToast("info", "Note moved to archive");
     setOpenModal(false);
   };
 

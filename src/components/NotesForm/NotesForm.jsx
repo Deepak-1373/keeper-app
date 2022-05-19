@@ -3,7 +3,6 @@ import { useNotes, useTheme } from "../../context";
 import { ColorList } from "../ColorList/ColorList";
 import { Label } from "../Label/Label";
 import { useToast } from "../../hooks/showToast";
-import { Toast } from "../Toast/Toast";
 import { HANDLE_SUBMIT } from "../../reducer";
 import "./NotesForm.css";
 
@@ -37,7 +36,7 @@ export const NotesForm = () => {
       },
     });
 
-    showToast("success", "Note hase been saved");
+    showToast("success", "New Note has been added");
 
     setNotes({
       title: "",
@@ -123,7 +122,6 @@ export const NotesForm = () => {
           </div>
         </div>
       </form>
-      <Toast />
     </div>
   );
 };
