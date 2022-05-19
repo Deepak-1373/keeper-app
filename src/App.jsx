@@ -1,5 +1,5 @@
 import "./App.css";
-import { Navbar } from "./components";
+import { Navbar, Toast } from "./components";
 import { useTheme } from "./context";
 import { Routes, Route } from "react-router-dom";
 import { Home, Archive, NotFound, Layout, Bin } from "./pages";
@@ -9,6 +9,7 @@ const App = () => {
   return (
     <div className={`app ${theme}`}>
       <Navbar />
+      <Toast />
       <Routes>
         <Route to="/" element={<Layout />}>
           <Route path="/" element={<Home />} />
