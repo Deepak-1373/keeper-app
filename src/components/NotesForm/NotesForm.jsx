@@ -1,13 +1,15 @@
 import React, { useState } from "react";
 import { useNotes, useTheme } from "../../context";
-import { HANDLE_SUBMIT } from "../../reducer";
 import { ColorList } from "../ColorList/ColorList";
 import { Label } from "../Label/Label";
+import { useToast } from "../../hooks/showToast";
+import { HANDLE_SUBMIT } from "../../reducer";
 import "./NotesForm.css";
 
 export const NotesForm = () => {
-  const { notesDispatch, labels } = useNotes();
   const { theme } = useTheme();
+  const { showToast } = useToast();
+  const { notesDispatch, labels } = useNotes();
   const [openLabelModal, setOpenLabelModal] = useState(false);
   const [displayColorPalette, setDisplayColorPalette] = useState(false);
   const [activeColor, setActiveColor] = useState(0);
@@ -33,6 +35,8 @@ export const NotesForm = () => {
         backgroundColor: notes.backgroundColor,
       },
     });
+
+    showToast("success", "New Note has been added");
 
     setNotes({
       title: "",

@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import { useNotes, useTheme } from "../context";
+import { useToast } from "../hooks/showToast";
 import { RESET_ARCHIVE_NOTE } from "../reducer";
 
 export const Archive = () => {
-  const { archiveList, searchQuery, notesDispatch } = useNotes();
   const { theme } = useTheme();
+  const { showToast } = useToast();
+  const { archiveList, searchQuery, notesDispatch } = useNotes();
   const [selectPosition, setSelectPosition] = useState();
 
   const selectArchiveHandler = (idx) => {
@@ -22,6 +24,7 @@ export const Archive = () => {
         backgroundColor: backgroundColor,
       },
     });
+    showToast("success", "Note successfully moved to home page");
   };
 
   return (

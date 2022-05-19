@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import { useNotes, useTheme } from "../context";
+import { useToast } from "../hooks/showToast";
 import { DELETE_FOREVER, MOVE_TO_ARCHIVE_FROM_BIN } from "../reducer";
 
 export const Bin = () => {
+  const { theme } = useTheme();
+  const { showToast } = useToast();
   const [selectPosition, setSelectPosition] = useState();
   const { binList, notesDispatch, searchQuery } = useNotes();
-  const { theme } = useTheme();
 
   const selectBinHandler = (idx) => {
     selectPosition === idx ? setSelectPosition() : setSelectPosition(idx);
@@ -22,6 +24,7 @@ export const Bin = () => {
         backgroundColor: backgroundColor,
       },
     });
+    showToast("info", "Note moved to archive");
   };
 
   const deleteForeverHandler = (id) => {
@@ -29,6 +32,7 @@ export const Bin = () => {
       type: DELETE_FOREVER,
       payload: id,
     });
+    showToast("success", "Note is successfully deleted");
   };
 
   return (
