@@ -37,6 +37,7 @@ export const NotesForm = () => {
     });
 
     showToast("success", "New Note has been added");
+    setActiveColor(0);
 
     setNotes({
       title: "",
