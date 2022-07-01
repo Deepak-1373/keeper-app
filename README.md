@@ -13,7 +13,7 @@ https://user-images.githubusercontent.com/61752151/169477892-a13246d0-f195-4feb-
 
 
 ## About
- - Keeper-app is a note taking app inspired by Google Keep app.
+ - Keeper-app is a note taking app inspired by Google Keep app. It can save/edit/delete each note. It can assign labels to the notes as well as you can give desired background color to each note. It has theme mode as well.
    
 ## Technologies used
 - ReactJS
